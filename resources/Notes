@@ -1,0 +1,5 @@
+Design Pattern
+- Think of designing classes in a way to be able to resist maximum maintaince during CHANGE.
+- Design should be open to extension but closed for modification.
+	- Thus coding to an interface instead of a concrete implementation(new class) shield from potential changes when new subclasses are added.
+	
