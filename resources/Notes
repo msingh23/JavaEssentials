@@ -12,3 +12,5 @@ STEPS FOR INTERVIEW QUESTIONS TECHNICAL
 		- look for any unused information
 		- start with fresh example if stuck
 		- solve it incorrectly and then try fix the errors.
+		- make time vs space tradeoff Sometimes using a variable upfront may help to acheive a better runtime.
+		- preprocessing may help like sorting and some other computation.
