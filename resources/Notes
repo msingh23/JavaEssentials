@@ -3,3 +3,12 @@ Design Pattern
 - Design should be open to extension but closed for modification.
 	- Thus coding to an interface instead of a concrete implementation(new class) shield from potential changes when new subclasses are added.
 	
+	
+STEPS FOR INTERVIEW QUESTIONS TECHNICAL
+	- clarify the questions
+	- Example which is not small, specific or special case.
+	- Brute force.
+	- Optimize
+		- look for any unused information
+		- start with fresh example if stuck
+		- solve it incorrectly and then try fix the errors.
