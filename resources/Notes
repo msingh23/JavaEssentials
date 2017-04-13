@@ -13,6 +13,7 @@ STEPS FOR INTERVIEW QUESTIONS TECHNICAL
 		- start with fresh example if stuck
 		- solve it incorrectly and then try fix the errors.
 		- make time vs space tradeoff Sometimes using a variable upfront may help to acheive a better runtime.
+<<<<<<< HEAD
 		- preprocessing may help like sorting and some other computation.
 		- walk through the algorithm and figure out the structure. writing pseudocode helps.
 	-IMPLEMENT THE CODE 
@@ -20,3 +21,6 @@ STEPS FOR INTERVIEW QUESTIONS TECHNICAL
 		be declared and implemented later. 
 	- TEST THE CODE
 		- look for hotspots- integer divisions,  null node in binary tree, base case in recursion, start and end of iteration in linked list.
+=======
+		- preprocessing may help like sorting and some other computation.
+>>>>>>> branch 'master' of ssh://git@github.com/msingh23/JavaEssentials.git
