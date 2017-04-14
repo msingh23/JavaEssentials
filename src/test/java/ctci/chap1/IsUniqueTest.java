@@ -22,8 +22,8 @@ public class IsUniqueTest {
 	
 	@Before
 	public void setup() {
-		inp = new String[]{"abcde","cc","c",};
-		out = new boolean [] {true,false, true};
+		inp = new String[]{"abcde","cc","c","hello", "apple", "kite", "padle"};
+		out = new boolean [] {true,false, true,false,false,true,true};
 
 	}
 	
