@@ -11,7 +11,8 @@ public class IsUnique {
 
 	public static boolean isUnique(String inp){
 		
-		if(null==inp) return false;
+		if(null==inp || inp.length()>256) return false;
+		
 		//ASCII = 128; extended ASCII is 256 src http://www.asciitable.com/
 		boolean [] check = new boolean[256];
 		
