@@ -1,7 +1,7 @@
 /**
  * 
  */
-package java.effective.scrape;
+package effective.scrape;
 
 /**
  * @author manu

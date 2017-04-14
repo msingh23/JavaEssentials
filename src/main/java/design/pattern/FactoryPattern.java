@@ -1,4 +1,4 @@
-package java.design.pattern;
+package design.pattern;
 
 public class FactoryPattern {
 
