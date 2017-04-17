@@ -17,13 +17,18 @@ import junit.framework.Assert;
 public class IsUniqueTest {
 
 	private String [] inp ;
+	private String [] inpWithSmallChars;
 	private boolean [] out ;
+	private boolean [] outWithSmallChars;
 	private IsUnique isUnique;
 	
 	@Before
 	public void setup() {
 		inp = new String[]{"abcde","cc","c","hello", "apple", "kite", "padle", "null", "!@#$%^&*()QWERTYP{}|ASDFGHJKL:ZXCVBNM<>?"};
 		out = new boolean [] {true,false, true,false,false,true,true, false, true};
+		inpWithSmallChars = new String[]{"abcde","cc","c","hello", "apple", "kite", "padle", "null"};
+		outWithSmallChars = new boolean [] {true,false, true,false,false,true,true, false};
+
 
 	}
 	
@@ -31,6 +36,8 @@ public class IsUniqueTest {
 	public void testUniqueString() {
 		for(int i=0; i<inp.length; i++){
 			Assert.assertEquals(out[i], isUnique.isUnique(inp[i]));
+			if(i<inpWithSmallChars.length)
+			Assert.assertEquals(outWithSmallChars[i], isUnique.isUnique2(inpWithSmallChars[i]));
 		}
 	}
 
