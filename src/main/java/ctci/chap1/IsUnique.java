@@ -27,34 +27,38 @@ public class IsUnique {
 
 	}
 
-	public static boolean isUnique2(String inp){
-		
-		if(null==inp || inp.length() >26) return false;
-		
+	public static boolean isUnique2(String inp) {
+
+		if (null == inp || inp.length() > 26)
+			return false;
+
 		int bitVec = 0;
-		
-		for(int i = 0 ; i<inp.length(); i++){
-			int val = inp.charAt(i)-'a';
-			if( (bitVec &(1<<val)) > 0 ) return false;
-			bitVec = bitVec | (1<<val);
+
+		for (int i = 0; i < inp.length(); i++) {
+			int val = inp.charAt(i) - 'a';
+			if ((bitVec & (1 << val)) > 0)
+				return false;
+			bitVec = bitVec | (1 << val);
 		}
-		
+
 		return true;
 	}
-	
-public static boolean isUnique3(String inp){
-		
-		if(null==inp || inp.length() >26) return false;
-		
+
+	public static boolean isUnique3(String inp) {
+
+		if (null == inp || inp.length() > 26)
+			return false;
+
 		long bitVec = 0;
-		
-		for(int i = 0 ; i<inp.length(); i++){
-			int val = inp.charAt(i)-'a';
-			if( (bitVec &(1<<val)) > 0 ) return false;
-			bitVec = bitVec | (1<<val);
+
+		for (int i = 0; i < inp.length(); i++) {
+			int val = inp.charAt(i) - 'a';
+			if ((bitVec & (1 << val)) > 0)
+				return false;
+			bitVec = bitVec | (1 << val);
 		}
-		
+
 		return true;
 	}
-	
+
 }
