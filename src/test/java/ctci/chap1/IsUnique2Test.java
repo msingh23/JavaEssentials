@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ctci.chap1.q1;
+package ctci.chap1;
 
 import org.junit.Before;
 import org.junit.Test;
