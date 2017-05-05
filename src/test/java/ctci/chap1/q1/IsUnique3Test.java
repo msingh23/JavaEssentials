@@ -1,11 +1,12 @@
 /**
  * 
  */
-package ctci.chap1;
+package ctci.chap1.q1;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import ctci.chap1.IsUnique;
 import junit.framework.Assert;
 
 /**
