@@ -38,7 +38,7 @@ public class IsUnique {
 			int val = inp.charAt(i) - 'a';
 			if ((bitVec & (1 << val)) > 0)
 				return false;
-			bitVec = bitVec | (1 << val);
+			bitVec |= (1 << val);
 		}
 
 		return true;
@@ -55,7 +55,7 @@ public class IsUnique {
 			int val = inp.charAt(i) - 'a';
 			if ((bitVec & (1 << val)) > 0)
 				return false;
-			bitVec = bitVec | (1 << val);
+			bitVec |= (1 << val);
 		}
 
 		return true;
