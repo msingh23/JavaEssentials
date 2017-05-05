@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ctci.chap1.q1;
+package ctci.chap1;
 
 import static org.junit.Assert.fail;
 
