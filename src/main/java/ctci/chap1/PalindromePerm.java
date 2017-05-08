@@ -65,16 +65,23 @@ public class PalindromePerm {
 		if (null != inp) {
 
 			int vec = 0;
-			inp = inp.toLowerCase();
 			for (int i = 0; i < inp.length(); i++) {
 
-				if (checkRange(inp.charAt(i), true, false, false)) {
+				if (checkRange(inp.charAt(i), true, true, false)) {
 
-					if (((1 << (inp.charAt(i) - 'a')) & vec) > 0) {
-						vec = vec & ~(1 << (inp.charAt(i) - 'a'));
+					int mask = 0;
+					if ((inp.charAt(i) - 'A') > 26) {
+						mask = (inp.charAt(i) - 'a');
+					}
+					if (((inp.charAt(i) - 'A') <= 26) && ((inp.charAt(i) - 'A') >= 0)) {
+						mask = (inp.charAt(i) - 'A');
+					}
+
+					if (((1 << mask) & vec) > 0) {
+						vec = vec & (~(1 << mask));
 					} else {
 
-						vec = vec | (1 << (inp.charAt(i) - 'a'));
+						vec = vec | (1 << mask);
 					}
 
 				}
@@ -94,6 +101,12 @@ public class PalindromePerm {
 		// TODO Auto-generated method stub
 		if (isLowerRange) {
 			if (character >= 'a' && character <= 'z') {
+				result = true;
+			}
+		}
+
+		if (IsUpperRange) {
+			if (character >= 'A' && character <= 'Z') {
 				result = true;
 			}
 		}
