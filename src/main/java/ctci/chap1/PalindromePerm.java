@@ -78,7 +78,9 @@ public class PalindromePerm {
 					}
 
 					if (((1 << mask) & vec) > 0) {
-						vec = vec & (~(1 << mask));
+						vec = vec & ((1 << mask)-1);
+						//or we can also do this
+						//vec = vec & (~(1 << mask));
 					} else {
 
 						vec = vec | (1 << mask);
