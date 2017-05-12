@@ -138,7 +138,7 @@ public class OneEditDistanceString {
 
 		}
 		count = count + s1.length() - i + s2.length() - j;
-		System.out.println(s1 + " :: " + s2 + " :: " + count);
+		//System.out.println(s1 + " :: " + s2 + " :: " + count);
 		return count < 2;
 
 	}
