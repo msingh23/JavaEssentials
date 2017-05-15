@@ -73,15 +73,15 @@ public class ZeroMatrix {
 			boolean isRowZero = false;
 
 			for (int i = 0; i < inp.length; i++) {
-				if (inp[i][0] == 0){
+				if (inp[i][0] == 0) {
 					isColZero = true;
 					break;
 				}
-				
+
 			}
 
 			for (int i = 0; i < inp[0].length; i++) {
-				if (inp[0][i] == 0){
+				if (inp[0][i] == 0) {
 					isRowZero = true;
 					break;
 				}
@@ -113,7 +113,7 @@ public class ZeroMatrix {
 					inp[0][j] = 0;
 				}
 			}
-			if (isColZero|| isRowZero) {
+			if (isColZero || isRowZero) {
 				inp[0][0] = 0;
 			}
 
