@@ -1,4 +1,4 @@
-Design Pattern
+DESIGN PATTERN
 - Think of designing classes in a way to be able to resist maximum maintaince during CHANGE.
 - Design should be open to extension but closed for modification.
 	- Thus coding to an interface instead of a concrete implementation(new class) shield from potential changes when new subclasses are added.
@@ -21,3 +21,6 @@ STEPS FOR INTERVIEW QUESTIONS TECHNICAL
 	- TEST THE CODE
 		- look for hotspots- integer divisions,  null node in binary tree, base case in recursion, start and end of iteration in linked list.
 
+
+IMPORTANT THINGS TO REMEMBER
+	-(Chap2-94) The recursive algorithm can take at least O(n) space where n is the depth of the recursive call. 
