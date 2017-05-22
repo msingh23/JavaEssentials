@@ -21,3 +21,6 @@ STEPS FOR INTERVIEW QUESTIONS TECHNICAL
 	- TEST THE CODE
 		- look for hotspots- integer divisions,  null node in binary tree, base case in recursion, start and end of iteration in linked list.
 
+
+IMPORTANT THINGS TO REMEMBER
+	-(Chap2-94) The recursive algorithm can take at least O(n) space where n is the depth of the recursive call. 
