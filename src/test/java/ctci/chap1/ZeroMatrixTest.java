@@ -48,9 +48,9 @@ public class ZeroMatrixTest {
 	public void test() {
 		
 		for(int i = 0;i<inp.length;i++){
-			print(inp[i]);
+			//print(inp[i]);
 			handler.ZeroMatrix2(inp[i]);
-			print(inp[i]);
+			//print(inp[i]);
 			Assert.assertArrayEquals(out[i], inp[i]);
 		}
 
