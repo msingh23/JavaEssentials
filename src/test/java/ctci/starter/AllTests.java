@@ -14,13 +14,14 @@ import ctci.chap1.StringCompressionTest;
 import ctci.chap1.URLifyStringTest;
 import ctci.chap1.ZeroMatrixTest;
 import ctci.chap2.NodeTest;
+import ctci.chap2.RemoveDuplicatesTest;
 import ctci.chap1.StringPermutationOfOtherTest;
 import ctci.chap1.StringRotationTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({ IsUnique2Test.class, IsUniqueTest.class, IsUnique3Test.class, StringPermutationOfOtherTest.class,
 		URLifyStringTest.class, PalindromePermTest.class, OneEditDistanceStringTest.class, StringCompressionTest.class,
-		RotateMatrixTest.class, ZeroMatrixTest.class, StringRotationTest.class, NodeTest.class })
+		RotateMatrixTest.class, ZeroMatrixTest.class, StringRotationTest.class, NodeTest.class,RemoveDuplicatesTest.class })
 public class AllTests {
 
 }
