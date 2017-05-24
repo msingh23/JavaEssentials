@@ -23,11 +23,13 @@ public class RemoveDuplicates {
 			while (curr != null) {
 				if (set.contains(curr.data)) {
 					prev.next = curr.next;
+
 				} else {
 					set.add((Integer) curr.data);
 					prev = curr;
-					curr = curr.next;
+
 				}
+				curr = curr.next;
 			}
 
 		}
@@ -43,10 +45,10 @@ public class RemoveDuplicates {
 				while (runner != null) {
 					if (runner.data == curr.data) {
 						runnerPrev.next = runner.next;
-					}else{
+					} else {
 						runnerPrev = runner;
 					}
-					
+
 					runner = runner.next;
 
 				}
