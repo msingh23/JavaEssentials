@@ -29,6 +29,15 @@ public class KthElementFromEndTest {
 		Assert.assertEquals(10, handler.getKthFromLast(list, 6).data);
 		Assert.assertEquals(60, handler.getKthFromLast(list, 1).data);
 		Assert.assertEquals(40, handler.getKthFromLast(list, 3).data);
+
+	}
+
+	@Test
+	public void test2() {
+		Assert.assertEquals(10, handler.getKthNodeFromLast2(list, 6).data);
+		Assert.assertEquals(60, handler.getKthNodeFromLast2(list, 1).data);
+		Assert.assertEquals(40, handler.getKthNodeFromLast2(list, 3).data);
+
 	}
 
 }
