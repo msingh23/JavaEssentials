@@ -9,25 +9,35 @@ package ctci.chap2;
  */
 public class KthElementFromTheLast {
 
-	static int kthG = 0;
+	public class kThVal {
+		private int val;
+
+		public kThVal(int val) {
+			this.val = val;
+		}
+	}
+
+	// static int kthG = 0;
 
 	public Node getKthFromLast(LinkList list, int kth) {
 		Node temp = list.head;
-		kthG = kth;
-		return findKth(temp);
+		kThVal k = new kThVal(kth);
+
+		// kthG = kth;
+		return findKth(temp, k);
 
 	}
 
-	private Node findKth(Node tail) {
+	private Node findKth(Node tail, kThVal k) {
 		Node ans = null;
 		if (tail == null) {
 
 		} else {
-			ans = findKth(tail.next);
-			if ((ans == null) && kthG == 1) {
+			ans = findKth(tail.next, k);
+			if ((ans == null) && k.val == 1) {
 				return tail;
 			}
-			kthG--;
+			k.val--;
 
 		}
 		return ans;
