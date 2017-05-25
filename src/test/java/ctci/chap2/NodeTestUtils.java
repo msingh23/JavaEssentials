@@ -16,4 +16,14 @@ public class NodeTestUtils {
 		}
 	}
 
+	public static void printFromNode(Node data) {
+		Node temp = data;
+		while (temp.next != null) {
+			System.out.print(temp.data + "->");
+			temp = temp.next;
+		}
+		System.out.print(temp.data);
+		System.out.println();
+	}
+
 }
