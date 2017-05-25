@@ -25,6 +25,7 @@ import ctci.chap1.StringRotationTest;
 		URLifyStringTest.class, PalindromePermTest.class, OneEditDistanceStringTest.class, StringCompressionTest.class,
 		RotateMatrixTest.class, ZeroMatrixTest.class, StringRotationTest.class, NodeTest.class,
 		RemoveDuplicatesTest.class, KthElementFromEndTest.class, DeleteMiddleNodeTest.class })
+
 public class AllTests {
 
 }
