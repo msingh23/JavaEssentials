@@ -16,6 +16,19 @@ public class NodeTestUtils {
 		}
 	}
 
+	public static void assertNode(Node list1, Node list2) {
+		Node temp = list1;
+		Node temp2 = list2;
+		while (temp.next != null && temp2.next != null) {
+			Assert.assertEquals(temp.data, temp2.data);
+			temp = temp.next;
+			temp2 = temp2.next;
+		}
+		if (temp2.next != null || temp.next != null) {
+			assert (false);
+		}
+	}
+
 	public static void printFromNode(Node data) {
 		Node temp = data;
 		while (temp.next != null) {
