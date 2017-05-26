@@ -94,4 +94,52 @@ public class SumList {
 		return out;
 	}
 
+	public Node sumRec(Node<Integer> p1, Node<Integer> p2, int carry) {
+
+		if (p1 == null && p2 == null) {
+			return null;
+		}
+
+		int sum = 0;
+
+		sum += carry;
+
+		if (p1 != null) {
+			sum += p1.data;
+		}
+		if (p2 != null) {
+			sum += p2.data;
+		}
+
+		Node add = new Node<Integer>(sum % 10);
+		Node join = sumRec(p1.next, p2.next, sum / 10);
+		add.next = join;
+		return add;
+
+	}
+
+	public Node sumRecWithUnitsAtEnd(Node<Integer> p1, Node<Integer> p2, int carry) {
+
+		if (p1 == null && p2 == null) {
+			return null;
+		}
+
+		int sum = 0;
+
+		sum += carry;
+
+		if (p1 != null) {
+			sum += p1.data;
+		}
+		if (p2 != null) {
+			sum += p2.data;
+		}
+
+		Node add = new Node<Integer>(sum % 10);
+		Node join = sumRecWithUnitsAtEnd(p1.next, p2.next, sum / 10);
+		add.next = join;
+		return add;
+
+	}
+
 }

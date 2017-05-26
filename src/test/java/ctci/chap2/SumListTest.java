@@ -32,4 +32,11 @@ public class SumListTest {
 
 	}
 
+	@Test
+	public void test2() {
+
+		NodeTestUtils.assertNode(handler.sumRec(d1.head, d2.head, 0), sum.head);
+
+	}
+
 }
