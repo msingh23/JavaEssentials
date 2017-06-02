@@ -99,20 +99,9 @@ public class SumList {
 		if (p1 == null && p2 == null) {
 			return null;
 		}
-
-		int sum = 0;
-
-		sum += carry;
-
-		if (p1 != null) {
-			sum += p1.data;
-		}
-		if (p2 != null) {
-			sum += p2.data;
-		}
-
-		Node add = new Node<Integer>(sum % 10);
-		Node join = sumRec(p1.next, p2.next, sum / 10);
+		carry += ((p1 == null) ? 0 : p1.data) + ((p2 == null ? 0 : p2.data));
+		Node add = new Node<Integer>(carry % 10);
+		Node join = sumRec(p1 == null ? null : p1.next, p2 == null ? null : p2.next, carry / 10);
 		add.next = join;
 		return add;
 
