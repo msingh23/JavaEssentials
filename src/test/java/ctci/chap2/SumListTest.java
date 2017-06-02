@@ -9,6 +9,7 @@ public class SumListTest {
 	public LinkList<Integer> d1;
 	public LinkList<Integer> d2;
 	public LinkList<Integer> sum;
+	public LinkList<Integer> sumRev;
 
 	@Before
 	public void setUp() throws Exception {
@@ -23,6 +24,10 @@ public class SumListTest {
 		sum = new LinkList<Integer>(2);
 		sum.addNode(1);
 		sum.addNode(9);
+		sumRev = new LinkList<Integer>(1);
+		sumRev.addNode(3);
+		sumRev.addNode(0);
+		sumRev.addNode(8);
 	}
 
 	@Test
@@ -36,6 +41,13 @@ public class SumListTest {
 	public void test2() {
 
 		NodeTestUtils.assertNode(handler.sumRec(d1.head, d2.head, 0), sum.head);
+
+	}
+
+	@Test
+	public void test3() {
+
+		NodeTestUtils.assertNode(handler.sumRecWithUnitsAtEnd(d1.head, d2.head), sumRev.head);
 
 	}
 

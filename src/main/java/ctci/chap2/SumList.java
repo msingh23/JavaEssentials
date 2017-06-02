@@ -118,28 +118,74 @@ public class SumList {
 
 	}
 
-	public Node sumRecWithUnitsAtEnd(Node<Integer> p1, Node<Integer> p2, int carry) {
+	public class sum {
+		Node sum;
+		int carry;
 
-		if (p1 == null && p2 == null) {
-			return null;
+		public sum() {
+			carry = 0;
+			sum = null;
 		}
+	}
 
-		int sum = 0;
+	public Node sumRecWithUnitsAtEnd(Node<Integer> p1, Node<Integer> p2) {
 
-		sum += carry;
+		int len1 = length(p1);
+		int len2 = length(p2);
 
-		if (p1 != null) {
-			sum += p1.data;
+		if (len1 < len2) {
+			p1 = padZero(p1, len2 - len1);
+		} else {
+			p2 = padZero(p2, len1 - len2);
 		}
-		if (p2 != null) {
-			sum += p2.data;
+		sum ans = SumListRever(p1, p2);
+		if (ans.carry > 0) {
+			Node first = new Node<>(ans.carry);
+			first.next = ans.sum;
+			ans.sum = first;
 		}
-
-		Node add = new Node<Integer>(sum % 10);
-		Node join = sumRecWithUnitsAtEnd(p1.next, p2.next, sum / 10);
-		add.next = join;
-		return add;
+		return ans.sum;
 
 	}
 
+	private sum SumListRever(Node<Integer> p1, Node<Integer> p2) {
+
+		if (p1 == null || p2 == null) {
+			return new sum();
+		}
+
+		sum prevSum = SumListRever(p1.next, p2.next);
+		int digSum = p1.data + p2.data + prevSum.carry;
+		Node currSum = new Node<Integer>(digSum % 10);
+		currSum.next = prevSum.sum;
+		sum isum = new sum();
+		isum.sum = currSum;
+		isum.carry = digSum / 10;
+		return isum;
+
+	}
+
+	public int length(Node node) {
+		Node temp = node;
+		int len = 0;
+		while (temp != null) {
+			len++;
+			temp = temp.next;
+		}
+		return len;
+	}
+
+	public Node padZero(Node node, int len) {
+
+		for (int i = len; i > 0; i--) {
+			node = insertBefore(node, new Node<Integer>(0));
+		}
+		return node;
+
+	}
+
+	private Node insertBefore(Node node, Node<Integer> node2) {
+		node2.next = node;
+		return node2;
+	}
 }
