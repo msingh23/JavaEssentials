@@ -128,12 +128,7 @@ public class SumList {
 			p2 = padZero(p2, len1 - len2);
 		}
 		sum ans = SumListRever(p1, p2);
-		if (ans.carry > 0) {
-			Node first = new Node<>(ans.carry);
-			first.next = ans.sum;
-			ans.sum = first;
-		}
-		return ans.sum;
+		return (ans.carry > 0) ? insertBefore(ans.sum, new Node<Integer>(ans.carry)) : ans.sum;
 
 	}
 
