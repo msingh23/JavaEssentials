@@ -20,6 +20,7 @@ public class PalindromeTest {
 	private Palindrome handler;
 	private LinkList<Character> in;
 	private LinkList<Character> in2;
+	private LinkList<Character> in3;
 
 	@Before
 	public void setUp() throws Exception {
@@ -37,6 +38,16 @@ public class PalindromeTest {
 		in2.addNode('a');
 		in2.addNode('m');
 		in2.addNode('a');
+
+		in3 = new LinkList<Character>('m');
+		in3.addNode('a');
+		in3.addNode('r');
+		in3.addNode('a');
+		in3.addNode('a');
+		in3.addNode('r');
+		in3.addNode('a');
+		in3.addNode('m');
+
 	}
 
 	@Test
@@ -48,6 +59,11 @@ public class PalindromeTest {
 	@Test
 	public void test2() {
 		assertEquals(false, handler.isPalindrome(in2.head));
+	}
+
+	@Test
+	public void test3() {
+		assertEquals(true, handler.isPalindrome(in3.head));
 	}
 
 }
