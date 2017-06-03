@@ -52,17 +52,19 @@ public class PalindromeTest {
 	@Test
 	public void test() {
 		assertEquals(true, handler.isPalindrome(in.head));
-		assertEquals(false, handler.isPalindrome(in2.head));
+		assertEquals(true, handler.isPalindrome2(in.head));
 	}
 
 	@Test
 	public void test2() {
 		assertEquals(false, handler.isPalindrome(in2.head));
+		assertEquals(false, handler.isPalindrome2(in2.head));
 	}
 
 	@Test
 	public void test3() {
 		assertEquals(true, handler.isPalindrome(in3.head));
+		assertEquals(true, handler.isPalindrome2(in3.head));
 	}
 
 }
