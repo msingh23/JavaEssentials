@@ -30,8 +30,7 @@ public class PalindromeTest {
 		in.addNode('r');
 		in.addNode('a');
 		in.addNode('m');
-		// in.addNode('a');
-		// in.addNode('a');
+
 		in2 = new LinkList<Character>('m');
 		in2.addNode('a');
 		in2.addNode('r');
