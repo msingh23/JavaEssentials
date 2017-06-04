@@ -3,11 +3,13 @@
  */
 package ctci.chap2;
 
+import java.util.Stack;
+
 /**
  * @author manu
  *
  */
-public class Palindrome {
+public class Palindrome<T> {
 
 	public boolean isPalindrome(Node head) {
 
@@ -79,6 +81,40 @@ public class Palindrome {
 			temp = temp.next;
 		}
 		return length;
+	}
+
+	public boolean isPalindrome3(Node head) {
+
+		Node<T> p1 = null;
+		Node<T> p2 = null;
+		Stack<T> stack = new Stack<T>();
+
+		if (head != null) {
+			p1 = head;
+			p2 = head.next;
+			stack.push(p1.data);
+
+		}
+		boolean odd = false;
+		while (p2 != null && p2.next != null) {
+			if (p2.next.next == null) {
+				odd = true;
+			}
+			p1 = p1.next;
+			stack.push(p1.data);
+			p2 = p2.next.next;
+		}
+
+		if (odd) {
+			stack.pop();
+		}
+		while (p1 != null && p1.next != null) {
+			if (p1.next.data != stack.pop()) {
+				return false;
+			}
+			p1 = p1.next;
+		}
+		return true;
 	}
 
 }
