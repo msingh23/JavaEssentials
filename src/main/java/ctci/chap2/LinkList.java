@@ -26,6 +26,15 @@ public class LinkList<T> {
 		temp.next = new Node<T>(data);
 	}
 
+	public void addNode(Node<T> node) {
+
+		Node temp = head;
+		while (temp.next != null) {
+			temp = temp.next;
+		}
+		temp.next = node;
+	}
+
 	public void removeNode(T data) {
 		Node curr = head;
 		Node prev = null;
@@ -35,7 +44,7 @@ public class LinkList<T> {
 		}
 		if (prev == null && data == head.data) {
 			head = head.next;
-		} else if (data == curr.data){
+		} else if (data == curr.data) {
 			prev.next = curr.next;
 		}
 	}
