@@ -54,14 +54,14 @@ public class IntersectionTest {
 
 	@Test
 	public void test() {
-		NodeTestUtils.printFromNode(l1.head);
-		NodeTestUtils.printFromNode(l2.head);
 		assertEquals(common, handler.isIntersectionIterative(l1.head, l2.head));
+		assertEquals(common, handler.isIntersection(l1.head, l2.head));
 	}
 
 	@Test
 	public void test2() {
 		assertEquals(null, handler.isIntersectionIterative(l3.head, l4.head));
+		assertEquals(null, handler.isIntersection(l3.head, l4.head));
 	}
 
 }
