@@ -16,7 +16,7 @@ public class LoopDetection<T> {
 		Node slow = head;
 		Node fast = head;
 		boolean detect = false;
-		while (fast != null && fast.next != null) {
+		 while (fast != null && fast.next != null) {
 
 			slow = slow.next;
 			fast = fast.next.next;
