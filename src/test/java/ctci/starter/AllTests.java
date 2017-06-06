@@ -16,6 +16,7 @@ import ctci.chap1.ZeroMatrixTest;
 import ctci.chap2.DeleteMiddleNodeTest;
 import ctci.chap2.IntersectionTest;
 import ctci.chap2.KthElementFromEndTest;
+import ctci.chap2.LoopDetectionTest;
 import ctci.chap2.NodeTest;
 import ctci.chap2.PalindromeTest;
 import ctci.chap2.RemoveDuplicatesTest;
@@ -28,7 +29,7 @@ import ctci.chap1.StringRotationTest;
 		URLifyStringTest.class, PalindromePermTest.class, OneEditDistanceStringTest.class, StringCompressionTest.class,
 		RotateMatrixTest.class, ZeroMatrixTest.class, StringRotationTest.class, NodeTest.class,
 		RemoveDuplicatesTest.class, KthElementFromEndTest.class, DeleteMiddleNodeTest.class, SumListTest.class,
-		PalindromeTest.class, IntersectionTest.class })
+		PalindromeTest.class, IntersectionTest.class, LoopDetectionTest.class })
 
 public class AllTests {
 
