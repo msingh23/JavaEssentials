@@ -19,7 +19,7 @@ public class Stack<T> {
 		}
 	}
 
-	private StackNode<T> top;
+	private StackNode<T> top = null;
 
 	public void push(T data) {
 
