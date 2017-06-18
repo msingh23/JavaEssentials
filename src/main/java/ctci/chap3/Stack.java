@@ -9,7 +9,7 @@ package ctci.chap3;
  */
 public class Stack<T> {
 
-	private class StackNode<T> {
+	public static class StackNode<T> {
 		private T data;
 		private StackNode<T> next;
 
