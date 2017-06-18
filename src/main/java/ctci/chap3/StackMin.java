@@ -24,6 +24,7 @@ public class StackMin {
 		if (temp.min > head.min) {
 			temp.min = head.min;
 		}
+		temp.next = head;
 		head = temp;
 	}
 

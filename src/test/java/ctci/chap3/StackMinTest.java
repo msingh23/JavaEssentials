@@ -13,8 +13,8 @@ public class StackMinTest {
 
 	@Before
 	public void setUp() throws Exception {
-		handler = new StackMin(10);
-		handler.push(9);
+		handler = new StackMin(9);
+		handler.push(10);
 		handler.push(-1);
 		handler.push(11);
 		handler.push(8);
@@ -24,8 +24,23 @@ public class StackMinTest {
 	}
 
 	@Test
-	public void test() {
+	public void test() throws Exception {
 		Assert.assertEquals(handler.peek(), 2);
+		Assert.assertEquals(handler.min(), -1);
+		Assert.assertEquals(handler.pop(), 2);
+		Assert.assertEquals(handler.min(), -1);
+		Assert.assertEquals(handler.pop(), 13);
+		Assert.assertEquals(handler.min(), -1);
+		Assert.assertEquals(handler.pop(), 1);
+		Assert.assertEquals(handler.min(), -1);
+		Assert.assertEquals(handler.pop(), 8);
+		Assert.assertEquals(handler.min(), -1);
+		Assert.assertEquals(handler.pop(), 11);
+		Assert.assertEquals(handler.min(), -1);
+		Assert.assertEquals(handler.pop(), -1);
+		Assert.assertEquals(handler.min(), 9);
+		Assert.assertEquals(handler.pop(), 10);
+		Assert.assertEquals(handler.min(), 9);
 	}
 
 }
