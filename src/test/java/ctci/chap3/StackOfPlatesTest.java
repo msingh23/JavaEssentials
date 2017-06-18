@@ -33,7 +33,20 @@ public class StackOfPlatesTest {
 		Assert.assertEquals(handler.pop(), 5);
 		Assert.assertEquals(handler.peek(), 4);
 		Assert.assertEquals(handler.pop(), 4);
-		
+
 	}
+
+	@Test
+	public void testAtIndex() throws Exception {
+		Assert.assertEquals(handler.peek(), 7);
+		Assert.assertEquals(handler.popAt(1), 4);
+		Assert.assertEquals(handler.popAt(0), 2);
+		handler.push(8);
+		handler.push(9);
+		handler.push(10);
+		Assert.assertEquals(handler.peek(), 10);
+		Assert.assertEquals(handler.popAt(3), 10);
+		Assert.assertEquals(handler.popAt(2), 8);
+	}	
 
 }
