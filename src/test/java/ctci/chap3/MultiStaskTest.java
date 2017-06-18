@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import junit.framework.Assert;
 
-public class MultiTaskTest {
+public class MultiStaskTest {
 
 	private MultiStack handler;
 
