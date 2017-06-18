@@ -24,6 +24,8 @@ import ctci.chap2.PalindromeTest;
 import ctci.chap2.RemoveDuplicatesTest;
 import ctci.chap2.SumListTest;
 import ctci.chap3.MultiStaskTest;
+import ctci.chap3.StackMin2Test;
+import ctci.chap3.StackMinTest;
 import ctci.chap3.ThreeStaskTest;
 
 @RunWith(Suite.class)
@@ -31,7 +33,8 @@ import ctci.chap3.ThreeStaskTest;
 		URLifyStringTest.class, PalindromePermTest.class, OneEditDistanceStringTest.class, StringCompressionTest.class,
 		RotateMatrixTest.class, ZeroMatrixTest.class, StringRotationTest.class, NodeTest.class,
 		RemoveDuplicatesTest.class, KthElementFromEndTest.class, DeleteMiddleNodeTest.class, SumListTest.class,
-		PalindromeTest.class, IntersectionTest.class, LoopDetectionTest.class, MultiStaskTest.class, ThreeStaskTest.class })
+		PalindromeTest.class, IntersectionTest.class, LoopDetectionTest.class, MultiStaskTest.class,
+		ThreeStaskTest.class, StackMinTest.class, StackMin2Test.class })
 
 public class AllTests {
 
