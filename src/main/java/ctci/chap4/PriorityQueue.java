@@ -144,7 +144,9 @@ public class PriorityQueue<T> {
 			if (left != -1 && heap[left].priority > heap[i].priority) {
 				ind = left;
 			} else if (right != -1 && heap[right].priority > heap[i].priority) {
-				ind = right;
+				if (heap[right].priority > heap[ind].priority) {
+					ind = right;
+				}
 			}
 
 		}
