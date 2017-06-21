@@ -34,7 +34,7 @@ public class PriorityQueue<T> {
 		if (type == 0) {
 			min = true;
 			max = false;
-		} else {
+		} else if (type == 1) {
 			max = true;
 			min = false;
 		}
@@ -131,22 +131,19 @@ public class PriorityQueue<T> {
 		int right = getRight(i);
 		int ind = i;
 		if (min) {
-			if (left != -1 && heap[left].priority < heap[i].priority) {
+			if (left != -1 && heap[left].priority < heap[ind].priority) {
 				ind = left;
 			}
-			if (right != -1 && heap[right].priority < heap[i].priority) {
-				if (heap[right].priority < heap[ind].priority) {
-					ind = right;
-				}
+			if (right != -1 && heap[right].priority < heap[ind].priority) {
+				ind = right;
 			}
 
 		} else if (max) {
-			if (left != -1 && heap[left].priority > heap[i].priority) {
+			if (left != -1 && heap[left].priority > heap[ind].priority) {
 				ind = left;
-			} else if (right != -1 && heap[right].priority > heap[i].priority) {
-				if (heap[right].priority > heap[ind].priority) {
-					ind = right;
-				}
+			}
+			if (right != -1 && heap[right].priority > heap[ind].priority) {
+				ind = right;
 			}
 
 		}
