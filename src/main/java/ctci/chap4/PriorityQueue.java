@@ -20,22 +20,23 @@ public class PriorityQueue<T> {
 		T data;
 		int priority;
 
-		public HeapNode(T data, int priority, int type) {
+		public HeapNode(T data, int priority) {
 			this.data = data;
 			this.priority = priority;
-			if (type == 0) {
-				min = true;
-				max = false;
-			} else {
-				max = true;
-				min = false;
-			}
+
 		}
 	}
 
-	public PriorityQueue(int capacity) {
+	public PriorityQueue(int capacity, int type) {
 		heap = new HeapNode[capacity];
 		size = 0;
+		if (type == 0) {
+			min = true;
+			max = false;
+		} else {
+			max = true;
+			min = false;
+		}
 	}
 
 	private int getLeft(int i) {
