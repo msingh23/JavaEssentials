@@ -28,6 +28,7 @@ public class PriorityQueue<T> {
 	}
 
 	public PriorityQueue(int capacity, int type) {
+		this.capacity = capacity;
 		heap = new HeapNode[capacity];
 		size = 0;
 		if (type == 0) {
@@ -68,29 +69,29 @@ public class PriorityQueue<T> {
 			resize();
 		}
 		heap[size] = node;
-		moveUp(size);
 		size++;
+		moveUp(size - 1);
 	}
 
 	private void moveUp(int index) {
 		int parent = getParent(index);
 		if (min) {
 			if (parent != -1 && heap[index].priority < heap[parent].priority) {
-				swap(heap[index], heap[parent]);
+				swap(index, parent);
 				moveUp(parent);
 			}
 		} else if (max) {
 			if (parent != -1 && heap[index].priority > heap[parent].priority) {
-				swap(heap[index], heap[parent]);
+				swap(index, parent);
 				moveUp(parent);
 			}
 		}
 	}
 
-	private void swap(HeapNode heapNode, HeapNode heapNode2) {
-		HeapNode temp = heapNode;
-		heapNode = heapNode2;
-		heapNode2 = temp;
+	private void swap(int i, int j) {
+		HeapNode temp = heap[i];
+		heap[i] = heap[j];
+		heap[j] = temp;
 
 	}
 
@@ -100,6 +101,7 @@ public class PriorityQueue<T> {
 		for (int i = 0; i < this.heap.length; i++) {
 			newHeap[i] = this.heap[i];
 		}
+		this.capacity = newCapacity;
 		this.heap = newHeap;
 
 	}
@@ -117,27 +119,39 @@ public class PriorityQueue<T> {
 
 	}
 
+	public HeapNode peek() throws Exception {
+		if (size == 0) {
+			throw new Exception("priority is empty");
+		}
+		return heap[0];
+	}
+
 	private void moveDown(int i) {
 		int left = getLeft(i);
 		int right = getRight(i);
+		int ind = i;
 		if (min) {
 			if (left != -1 && heap[left].priority < heap[i].priority) {
-				swap(heap[left], heap[i]);
-				moveDown(left);
-			} else if (right != -1 && heap[right].priority < heap[i].priority) {
-				swap(heap[right], heap[i]);
-				moveDown(right);
+				ind = left;
+			}
+			if (right != -1 && heap[right].priority < heap[i].priority) {
+				if (heap[right].priority < heap[ind].priority) {
+					ind = right;
+				}
 			}
 
 		} else if (max) {
 			if (left != -1 && heap[left].priority > heap[i].priority) {
-				swap(heap[left], heap[i]);
-				moveDown(left);
+				ind = left;
 			} else if (right != -1 && heap[right].priority > heap[i].priority) {
-				swap(heap[right], heap[i]);
-				moveDown(right);
+				ind = right;
 			}
 
 		}
+		if (ind != i) {
+			swap(ind, i);
+			moveDown(ind);
+		}
+
 	}
 }
