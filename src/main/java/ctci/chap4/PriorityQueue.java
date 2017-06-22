@@ -9,16 +9,16 @@ package ctci.chap4;
  */
 public class PriorityQueue<T> {
 
-	int capacity;
-	int size;
-	boolean min;
-	boolean max;
-	HeapNode[] heap;
+	public int capacity;
+	public int size;
+	public boolean min;
+	public boolean max;
+	public HeapNode[] heap;
 
 	public class HeapNode<T> {
 
-		T data;
-		int priority;
+		public T data;
+		public int priority;
 
 		public HeapNode(T data, int priority) {
 			this.data = data;
@@ -73,7 +73,7 @@ public class PriorityQueue<T> {
 		moveUp(size - 1);
 	}
 
-	private void moveUp(int index) {
+	public void moveUp(int index) {
 		int parent = getParent(index);
 		if (min) {
 			if (parent != -1 && heap[index].priority < heap[parent].priority) {
@@ -126,7 +126,7 @@ public class PriorityQueue<T> {
 		return heap[0];
 	}
 
-	private void moveDown(int i) {
+	public void moveDown(int i) {
 		int left = getLeft(i);
 		int right = getRight(i);
 		int ind = i;
