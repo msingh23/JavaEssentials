@@ -42,7 +42,7 @@ public class ListOfDepthsTest {
 
 	@Test
 	public void test() throws Exception {
-		//tree.InOrderTraversal(tree.root);
+		// tree.InOrderTraversal(tree.root);
 		handler.createListOfDepths(tree, listOfList, list);
 		for (ArrayList<TreeNode> list : listOfList) {
 			for (TreeNode node : list) {
@@ -53,4 +53,30 @@ public class ListOfDepthsTest {
 		// System.out.println(listOfList);
 	}
 
+	@Test
+	public void testWithoutQueue() throws Exception {
+		// tree.InOrderTraversal(tree.root);
+
+		for (ArrayList<TreeNode> list : handler.createListOfDepthsWithoutQueue(tree.root)) {
+			for (TreeNode node : list) {
+				System.out.print(node.value + ", ");
+			}
+			System.out.println();
+		}
+		// System.out.println(listOfList);
+	}
+
+	@Test
+	public void testDepthRecursive() throws Exception {
+		// tree.InOrderTraversal(tree.root);
+		handler.createListOfDepthsRecursive(listOfList, tree.root, 0);
+		for (ArrayList<TreeNode> list : listOfList) {
+			for (TreeNode node : list) {
+				System.out.print(node.value + ", ");
+			}
+			System.out.println();
+		}
+		// System.out.println(listOfList);
+	}
 }
+

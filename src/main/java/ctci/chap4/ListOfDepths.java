@@ -4,6 +4,7 @@
 package ctci.chap4;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ctci.chap3.Queue;
 import ctci.chap4.BinaryTree.TreeNode;
@@ -40,5 +41,46 @@ public class ListOfDepths {
 			}
 		}
 
+	}
+
+	public List<ArrayList<TreeNode>> createListOfDepthsWithoutQueue(TreeNode root) {
+		List<ArrayList<TreeNode>> listOfList = new ArrayList<ArrayList<TreeNode>>();
+		if (root == null) {
+			return null;
+		}
+		ArrayList<TreeNode> current = new ArrayList<TreeNode>();
+		current.add(root);
+		while (current.size() > 0) {
+			ArrayList<TreeNode> prev = current;
+			listOfList.add(current);
+			current = new ArrayList<TreeNode>();
+			for (TreeNode node : prev) {
+				if (node.left != null) {
+					current.add(node.left);
+				}
+				if (node.right != null) {
+					current.add(node.right);
+				}
+			}
+		}
+
+		return listOfList;
+
+	}
+
+	public void createListOfDepthsRecursive(ArrayList<ArrayList<TreeNode>> listOfList, TreeNode root, int level) {
+		if (listOfList.size() == level) {
+			ArrayList<TreeNode> current = new ArrayList<TreeNode>();
+			listOfList.add(current);
+		}
+		ArrayList<TreeNode> list = listOfList.get(level);
+		list.add(root);
+		if(root.left!=null){
+			createListOfDepthsRecursive(listOfList, root.left, level+1);
+		}
+		if(root.right!=null){
+			createListOfDepthsRecursive(listOfList, root.right, level+1);
+		}
+		
 	}
 }
