@@ -3,6 +3,8 @@
  */
 package ctci.chap4;
 
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,6 +24,7 @@ public class ValidateBSTTest {
 	public BinaryTree tree;
 	public BinaryTree tree2;
 	public BinaryTree tree3;
+	public BinaryTree tree4;
 
 	@Before
 	public void setUp() throws Exception {
@@ -47,7 +50,20 @@ public class ValidateBSTTest {
 		tree3.add(tree3.root, 2);
 		tree3.add(tree3.root, 4);
 		tree3.add(tree3.root, 1);
-		tree3.root.value = 0;
+		tree3.root.value = 3;
+
+		tree4 = new BinaryTree(10);
+		tree4.add(tree4.root, 15);
+		tree4.add(tree4.root, 14);
+		tree4.add(tree4.root, 5);
+		tree4.add(tree4.root, 6);
+		tree4.add(tree4.root, 3);
+		tree4.add(tree4.root, 8);
+		tree4.add(tree4.root, 7);
+		tree4.root.right.left.value = 8;
+		tree4.root.left.right.right.value = 70;
+		tree4.root.left.right.right.left.value = -1;
+
 	}
 
 	@Test
@@ -55,6 +71,7 @@ public class ValidateBSTTest {
 		Assert.assertEquals(true, handler.isBST(tree.root));
 		Assert.assertEquals(false, handler.isBST(tree2.root));
 		Assert.assertEquals(false, handler.isBST(tree3.root));
+		Assert.assertEquals(false, handler.isBST(tree4.root));
 	}
 
 }
