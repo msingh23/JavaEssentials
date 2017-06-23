@@ -41,13 +41,28 @@ public class RouteBetweenNodesTest {
 	}
 
 	@Test
+	public void testCyclicExistBFS() throws Exception {
+		Assert.assertEquals(handler.isRouteExistBFS(n2, graph.root), true);
+	}
+
+	@Test
 	public void testPathDoesntExist() {
 		Assert.assertEquals(handler.isRouteExist(n2, n6), false);
 	}
 
 	@Test
-	public void testPathExistReverse() {
+	public void testPathDoesntExistBFS() throws Exception {
+		Assert.assertEquals(handler.isRouteExistBFS(n2, n6), false);
+	}
+
+	@Test
+	public void testPathExistReverse() throws Exception {
 		Assert.assertEquals(handler.isRouteExist(n3, n2), true);
+	}
+
+	@Test
+	public void testPathExistReverseBFS() throws Exception {
+		Assert.assertEquals(handler.isRouteExistBFS(n3, n2), true);
 	}
 
 }
