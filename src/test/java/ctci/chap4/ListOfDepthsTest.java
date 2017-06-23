@@ -42,13 +42,15 @@ public class ListOfDepthsTest {
 
 	@Test
 	public void test() throws Exception {
+		//tree.InOrderTraversal(tree.root);
 		handler.createListOfDepths(tree, listOfList, list);
-		for(ArrayList<TreeNode> list : listOfList){
-			for(TreeNode node : list){
-				System.out.println(node.value);
+		for (ArrayList<TreeNode> list : listOfList) {
+			for (TreeNode node : list) {
+				System.out.print(node.value + ", ");
 			}
+			System.out.println();
 		}
-		//System.out.println(listOfList);
+		// System.out.println(listOfList);
 	}
 
 }

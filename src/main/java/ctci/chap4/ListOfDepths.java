@@ -20,16 +20,22 @@ public class ListOfDepths {
 			Queue<TreeNode> q = new Queue<TreeNode>();
 			q.enqueue(tree.root);
 			q.enqueue(null);
-			while (!q.isEmpty() && q.peek() != null) {
+			while (true) {
 				TreeNode root = q.dequeue();
 				if (root == null) {
 					listOfList.add(list);
+					if (q.isEmpty()) {
+						break;
+					}
 					list = new ArrayList<TreeNode>();
 					q.enqueue(null);
 				} else {
 					list.add(root);
-					q.enqueue(root.left);
-					q.enqueue(root.right);
+					if (root.left != null)
+						q.enqueue(root.left);
+					if (root.right != null)
+						q.enqueue(root.right);
+
 				}
 			}
 		}
