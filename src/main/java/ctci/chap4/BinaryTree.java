@@ -94,4 +94,13 @@ public class BinaryTree {
 		}
 	}
 
+	public int getHeight(TreeNode root) {
+
+		if (root == null) {
+			return 0;
+		}
+		return Math.max(getHeight(root.left) + 1, getHeight(root.right) + 1);
+
+	}
+
 }
