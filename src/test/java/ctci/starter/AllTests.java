@@ -23,11 +23,23 @@ import ctci.chap2.NodeTest;
 import ctci.chap2.PalindromeTest;
 import ctci.chap2.RemoveDuplicatesTest;
 import ctci.chap2.SumListTest;
+import ctci.chap3.AnimalShelterTest;
+import ctci.chap3.AnimalShelterTest2;
 import ctci.chap3.MultiStaskTest;
+import ctci.chap3.MyQueueTest;
+import ctci.chap3.QueueTest;
 import ctci.chap3.SortStackTest;
 import ctci.chap3.StackMin2Test;
 import ctci.chap3.StackMinTest;
+import ctci.chap3.StackOfPlatesTest;
+import ctci.chap3.StackTest;
 import ctci.chap3.ThreeStaskTest;
+import ctci.chap4.BuildMinimalTreeTest;
+import ctci.chap4.GraphTest;
+import ctci.chap4.ListOfDepthsTest;
+import ctci.chap4.PriorityQueueTest;
+import ctci.chap4.RouteBetweenNodesTest;
+import ctci.chap4.TreeTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({ IsUnique2Test.class, IsUniqueTest.class, IsUnique3Test.class, StringPermutationOfOtherTest.class,
@@ -35,7 +47,10 @@ import ctci.chap3.ThreeStaskTest;
 		RotateMatrixTest.class, ZeroMatrixTest.class, StringRotationTest.class, NodeTest.class,
 		RemoveDuplicatesTest.class, KthElementFromEndTest.class, DeleteMiddleNodeTest.class, SumListTest.class,
 		PalindromeTest.class, IntersectionTest.class, LoopDetectionTest.class, MultiStaskTest.class,
-		ThreeStaskTest.class, StackMinTest.class, StackMin2Test.class, SortStackTest.class })
+		ThreeStaskTest.class, StackMinTest.class, StackMin2Test.class, SortStackTest.class, AnimalShelterTest.class,
+		AnimalShelterTest2.class, MyQueueTest.class, QueueTest.class, StackOfPlatesTest.class, StackTest.class,
+		BuildMinimalTreeTest.class, GraphTest.class, ListOfDepthsTest.class, PriorityQueueTest.class,
+		RouteBetweenNodesTest.class, TreeTest.class })
 
 public class AllTests {
 
