@@ -11,6 +11,48 @@ import ctci.chap4.BinaryTree.TreeNode;
  */
 public class Succesor {
 
+	public class Max {
+		TreeNode max = null;
+	}
+
+	public TreeNode getSuccesorBinarySearch(TreeNode root, TreeNode succ) {
+		Max max = new Max();
+		if (root != null) {
+			return getSuccessBS(root, succ, max);
+		}
+		return root;
+	}
+
+	private TreeNode getSuccessBS(TreeNode root, TreeNode succ, Max max) {
+
+		if (root == null) {
+			return null;
+		}
+
+		if (root.value == succ.value) {
+			if (succ.right != null) {
+				return min(succ.right);
+			} else {
+				return max.max;
+			}
+		}
+
+		if (succ.value < root.value) {
+			max.max = root;
+			return getSuccessBS(root.left, succ, max);
+		}
+		return getSuccessBS(root.right, succ, max);
+
+	}
+
+	private TreeNode min(TreeNode right) {
+		TreeNode min = right;
+		while (min.left != null) {
+			min = min.left;
+		}
+		return min;
+	}
+
 	public TreeNode getSuccessor(TreeNode root, TreeNode succ) {
 
 		if (root != null) {
@@ -24,7 +66,7 @@ public class Succesor {
 
 		if (root.value == succ.value) {
 			if (root.right != null) {
-				return root.right;
+				return min(root.right);
 			} else {
 				return max;
 			}

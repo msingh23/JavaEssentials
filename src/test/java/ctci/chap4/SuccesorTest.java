@@ -44,5 +44,12 @@ public class SuccesorTest {
 		Assert.assertEquals(null, handler.getSuccessor(tree.root, tree.root.right.right));
 		Assert.assertEquals(9, handler.getSuccessor(tree.root, tree.root.right).value);
 	}
+	@Test
+	public void testBinarySearch() {
+
+		Assert.assertEquals(5, handler.getSuccesorBinarySearch(tree.root, tree.root.left.right).value);
+		Assert.assertEquals(null, handler.getSuccesorBinarySearch(tree.root, tree.root.right.right));
+		Assert.assertEquals(9, handler.getSuccesorBinarySearch(tree.root, tree.root.right).value);
+	}
 
 }
