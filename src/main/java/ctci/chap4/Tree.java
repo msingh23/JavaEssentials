@@ -3,6 +3,8 @@
  */
 package ctci.chap4;
 
+import ctci.chap4.Tree.TreeNode;
+
 /**
  * @author manu
  *
@@ -32,6 +34,14 @@ public class Tree {
 		public void addRightNode(TreeNode node) {
 			this.right = node;
 			node.parent = this;
+		}
+
+		public TreeNode getSibling() {
+			if (this.parent == null) {
+				return null;
+			}
+			return this.parent.left == this ? this.parent.right : this.parent.left;
+
 		}
 	}
 

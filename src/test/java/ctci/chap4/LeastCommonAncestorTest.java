@@ -20,6 +20,7 @@ public class LeastCommonAncestorTest {
 	public TreeNode node5;
 	public TreeNode node6;
 	public TreeNode node7;
+	public TreeNode node8;
 
 	@Before
 	public void setUp() throws Exception {
@@ -33,7 +34,8 @@ public class LeastCommonAncestorTest {
 		node5 = tree.new TreeNode(17);
 		node6 = tree.new TreeNode(7);
 		node7 = tree.new TreeNode(3);
-		//tree = new Tree(root);
+		node8 = tree.new TreeNode(3);
+		// tree = new Tree(root);
 		tree.root.addLeftNode(node1);
 		tree.root.addRightNode(node2);
 		tree.root.left.addLeftNode(node3);
@@ -49,7 +51,19 @@ public class LeastCommonAncestorTest {
 		Assert.assertEquals(node1, handler.LCAWithParent(tree.root, node7, node5));
 		Assert.assertEquals(tree.root, handler.LCAWithParent(tree.root, node2, node7));
 		Assert.assertEquals(tree.root, handler.LCAWithParent(tree.root, tree.root, node7));
-		
+		Assert.assertEquals(null, handler.LCAWithParent(tree.root, node8, node3));
+		Assert.assertEquals(node1, handler.LCAWithParent(tree.root, node1, node4));
+		Assert.assertEquals(node4, handler.LCAWithParent(tree.root, node5, node4));
+	}
+
+	@Test
+	public void testLCAParentNoRoot() {
+		Assert.assertEquals(node1, handler.LCAWithParentNoRoot(node3, node5));
+		Assert.assertEquals(node1, handler.LCAWithParentNoRoot(node7, node5));
+		Assert.assertEquals(tree.root, handler.LCAWithParentNoRoot(node2, node7));
+		Assert.assertEquals(tree.root, handler.LCAWithParentNoRoot(tree.root, node7));
+		Assert.assertEquals(null, handler.LCAWithParentNoRoot(node8, node3));
+		Assert.assertEquals(node4, handler.LCAWithParentNoRoot(node5, node4));
 	}
 
 }

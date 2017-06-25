@@ -15,6 +15,9 @@ public class LeastCommonAncestor {
 		if (root == null || p == null || q == null) {
 			return null;
 		}
+		// if (!contain(root, p) && !contain(root, q)) {
+		// return null;
+		// }
 		int leftDepth = getDepth(p);
 		int rightDepth = getDepth(q);
 
@@ -31,6 +34,16 @@ public class LeastCommonAncestor {
 			right = right.parent;
 		}
 		return left;
+	}
+
+	private boolean contain(TreeNode root, TreeNode q) {
+		if (root == null) {
+			return false;
+		}
+		if (root == q) {
+			return true;
+		}
+		return contain(root.left, q) || contain(root.right, q);
 	}
 
 	private TreeNode moveUp(TreeNode p, int abs) {
@@ -51,6 +64,28 @@ public class LeastCommonAncestor {
 			temp = temp.parent;
 		}
 		return depth;
+	}
+
+	public TreeNode LCAWithParentNoRoot(TreeNode p, TreeNode q) {
+		if (p == null || q == null) {
+			return null;
+		}
+
+		if (contain(p, q)) {
+			return p;
+		}
+
+		if (contain(q, p)) {
+			return q;
+		}
+		TreeNode parent = p.parent;
+		TreeNode sibling = p.getSibling();
+		while (!contain(sibling, q) && parent != null) {
+			sibling = parent.getSibling();
+			parent = parent.parent;
+		}
+		return parent;
+
 	}
 
 }
