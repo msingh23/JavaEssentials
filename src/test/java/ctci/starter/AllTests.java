@@ -38,6 +38,7 @@ import ctci.chap4.BuildMinimalTreeTest;
 import ctci.chap4.BuildOrderTest;
 import ctci.chap4.CheckIfBalancedTest;
 import ctci.chap4.GraphTest;
+import ctci.chap4.LeastCommonAncestorTest;
 import ctci.chap4.ListOfDepthsTest;
 import ctci.chap4.PriorityQueueTest;
 import ctci.chap4.RouteBetweenNodesTest;
@@ -55,7 +56,7 @@ import ctci.chap4.ValidateBSTTest;
 		AnimalShelterTest2.class, MyQueueTest.class, QueueTest.class, StackOfPlatesTest.class, StackTest.class,
 		BuildMinimalTreeTest.class, GraphTest.class, ListOfDepthsTest.class, PriorityQueueTest.class,
 		RouteBetweenNodesTest.class, TreeTest.class, CheckIfBalancedTest.class, ValidateBSTTest.class,
-		SuccesorTest.class, BuildOrderTest.class })
+		SuccesorTest.class, BuildOrderTest.class, LeastCommonAncestorTest.class })
 
 public class AllTests {
 
