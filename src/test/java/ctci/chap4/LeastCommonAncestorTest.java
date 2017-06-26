@@ -69,7 +69,7 @@ public class LeastCommonAncestorTest {
 
 	@Test
 	public void testLCANoParent() {
-		
+
 		Assert.assertEquals(node1, handler.LCAWithoutParent(tree.root, node3, node5));
 		Assert.assertEquals(node1, handler.LCAWithoutParent(tree.root, node7, node5));
 		Assert.assertEquals(tree.root, handler.LCAWithoutParent(tree.root, node2, node7));
