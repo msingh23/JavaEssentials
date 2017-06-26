@@ -88,4 +88,42 @@ public class LeastCommonAncestor {
 
 	}
 
+	public TreeNode LCAWithoutParent(TreeNode root, TreeNode p, TreeNode q) {
+		if (!contain(root, p) || !contain(root, q)) {
+			return null;
+		}
+		return LCAWithoutParentRecurse(root, p, q);
+
+	}
+
+	public TreeNode LCAWithoutParentRecurse(TreeNode root, TreeNode p, TreeNode q) {
+		if (root == null)
+			return root;
+		if (root == p || root == q) {
+			return root;
+		}
+
+		TreeNode left = null;
+		TreeNode right = null;
+		if (contain(root, q) && contain(root, p)) {
+			left = LCAWithoutParentRecurse(root.left, p, q);
+			right = LCAWithoutParentRecurse(root.right, p, q);
+		}
+
+		if (left != null && right != null) {
+			return root;
+		} else if (left != null) {
+			return left;
+		} else if (right != null) {
+			return right;
+		}
+
+		else if (contain(root, q) || contain(root, p)) {
+			return root;
+		}
+
+		return null;
+
+	}
+
 }
