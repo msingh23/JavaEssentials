@@ -126,4 +126,55 @@ public class LeastCommonAncestor {
 
 	}
 
+	public class Result {
+		boolean isAns = false;
+		TreeNode node = null;
+
+		public Result(boolean isAns, TreeNode root) {
+			this.isAns = isAns;
+			this.node = root;
+		}
+	}
+
+	public TreeNode LCAWithoutParentNoChain(TreeNode root, TreeNode p, TreeNode q) {
+		Result res = getLCAWithoutParentNoChain(root, p, q);
+		System.out.println(res.node.data);
+		if (res.isAns) {
+			return res.node;
+		}
+		return null;
+	}
+
+	private Result getLCAWithoutParentNoChain(TreeNode root, TreeNode p, TreeNode q) {
+
+		if (root == null) {
+			return new Result(false, root);
+		}
+		if (root == p && root == q) {
+			return new Result(true, root);
+		}
+
+		Result left = getLCAWithoutParentNoChain(root.left, p, q);
+		Result right = getLCAWithoutParentNoChain(root.right, p, q);
+
+		if (left.node != null && right.node != null) {
+			return new Result(true, root);
+		}
+
+		if ((left.node != null || right.node != null) && (root == p || root == q)) {
+			return new Result(true, root);
+		}
+		if ((root == p || root == q)) {
+			return new Result(false, root);
+		}
+		if (left.node != null) {
+			return left;
+		}
+		if (right.node != null) {
+			return right;
+		}
+
+		return new Result(false, null);
+	}
+
 }
