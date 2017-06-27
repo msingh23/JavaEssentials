@@ -4,6 +4,7 @@
 package ctci.chap4;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import ctci.chap4.BinaryTree.TreeNode;
 
@@ -20,28 +21,104 @@ public class AllArrayFromTree {
 
 		ArrayList<ArrayList<TreeNode>> left = getAllArray(root.left);
 		ArrayList<ArrayList<TreeNode>> right = getAllArray(root.right);
+		ArrayList<TreeNode> centerList = new ArrayList<TreeNode>();
+
 		ArrayList<TreeNode> rootlistLeft = new ArrayList<TreeNode>();
 		ArrayList<TreeNode> rootlistRight = new ArrayList<TreeNode>();
 		ArrayList<ArrayList<TreeNode>> center = new ArrayList<ArrayList<TreeNode>>();
-		rootlistLeft.add(root);
-
-		for (ArrayList<TreeNode> list : left) {
-			rootlistLeft.addAll(list);
+		centerList.add(root);
+		if (left == null && right == null) {
+			center.add(centerList);
 		}
 
-		for (ArrayList<TreeNode> list : right) {
-			rootlistLeft.addAll(list);
-			rootlistRight.addAll(list);
+		if (left != null) {
+			for (ArrayList<TreeNode> llist : left) {
+				rootlistLeft = new ArrayList<TreeNode>();
+				rootlistLeft.addAll(centerList);
+				rootlistLeft.addAll(llist);
+				if (right != null) {
+					for (ArrayList<TreeNode> rlist : right) {
+						rootlistRight = new ArrayList<TreeNode>();
+						rootlistRight.addAll(rootlistLeft);
+						rootlistRight.addAll(rlist);
+						center.add(rootlistRight);
+
+					}
+				} else {
+					center.add(rootlistLeft);
+				}
+
+			}
 		}
 
-		for (ArrayList<TreeNode> list : left) {
-			rootlistRight.addAll(list);
+		if (right != null) {
+			for (ArrayList<TreeNode> rlist : right) {
+				rootlistRight = new ArrayList<TreeNode>();
+				rootlistRight.addAll(centerList);
+				rootlistRight.addAll(rlist);
+				if (left != null) {
+					for (ArrayList<TreeNode> llist : left) {
+						rootlistLeft = new ArrayList<TreeNode>();
+						rootlistLeft.addAll(rootlistRight);
+						rootlistLeft.addAll(llist);
+						center.add(rootlistLeft);
+
+					}
+				} else {
+					center.add(rootlistRight);
+				}
+
+			}
 		}
 
-		center.add(rootlistLeft);
-		center.add(rootlistRight);
 		return center;
 
 	}
 
+	public ArrayList<LinkedList<TreeNode>> getNode(TreeNode node) {
+		ArrayList<LinkedList<TreeNode>> res = new ArrayList<LinkedList<TreeNode>>();
+		if (node == null) {
+			res.add(new LinkedList<TreeNode>());
+			return res;
+		}
+
+		ArrayList<LinkedList<TreeNode>> left = getNode(node.left);
+		ArrayList<LinkedList<TreeNode>> right = getNode(node.right);
+
+		LinkedList<TreeNode> prefix = new LinkedList<TreeNode>();
+		prefix.add(node);
+
+		for (LinkedList<TreeNode> lll : left) {
+			for (LinkedList<TreeNode> rll : right) {
+				ArrayList<LinkedList<TreeNode>> weave = new ArrayList<LinkedList<TreeNode>>();
+				weaveList(lll, rll, prefix, weave);
+				res.addAll(weave);
+			}
+
+		}
+		return res;
+	}
+
+	private void weaveList(LinkedList<TreeNode> lll, LinkedList<TreeNode> rll, LinkedList<TreeNode> prefix,
+			ArrayList<LinkedList<TreeNode>> weave) {
+
+		if (lll.size() == 0 || rll.size() == 0) {
+			LinkedList<TreeNode> res = (LinkedList<TreeNode>) prefix.clone();
+			res.addAll(lll);
+			res.addAll(rll);
+			weave.add(res);
+			return;
+		}
+
+		TreeNode first = lll.removeFirst();
+		prefix.addLast(first);
+		weaveList(lll, rll, prefix, weave);
+		lll.addFirst(prefix.removeLast());
+
+		TreeNode Second = rll.removeFirst();
+		prefix.add(Second);
+		weaveList(lll, rll, prefix, weave);
+		rll.addFirst(prefix.removeLast());
+
+	}
 }
