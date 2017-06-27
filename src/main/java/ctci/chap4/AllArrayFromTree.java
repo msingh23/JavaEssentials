@@ -103,7 +103,8 @@ public class AllArrayFromTree {
 			ArrayList<LinkedList<TreeNode>> weave) {
 
 		if (lll.size() == 0 || rll.size() == 0) {
-			LinkedList<TreeNode> res = (LinkedList<TreeNode>) prefix.clone();
+			LinkedList<TreeNode> res = new LinkedList<TreeNode>();
+			res.addAll(prefix);
 			res.addAll(lll);
 			res.addAll(rll);
 			weave.add(res);
