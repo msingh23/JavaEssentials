@@ -23,20 +23,25 @@ public class checkSubTreeTest {
 		tree.add(tree.root, 8);
 		tree.add(tree.root, 9);
 		tree.add(tree.root, 7);
-		tree.add(tree.root, 5);
 		tree.add(tree.root, 4);
+		tree.add(tree.root, 5);
 		tree.add(tree.root, 3);
 		tree.add(tree.root, 1);
 		// tree.add(tree.root, 1);
 
 		tree1 = new BinaryTree(2);
-		tree1.add(tree1.root, 5);
 		tree1.add(tree1.root, 4);
+		tree1.add(tree1.root, 5);
 	}
 
 	@Test
 	public void test() {
 		Assert.assertEquals(true, handler.checkSubTree(tree.root, tree1.root));
+	}
+
+	@Test
+	public void testPreOrder() {
+		Assert.assertEquals(true, handler.checkSubTreePreOrder(tree.root, tree.root.left));
 	}
 
 }
