@@ -34,6 +34,7 @@ import ctci.chap3.StackMinTest;
 import ctci.chap3.StackOfPlatesTest;
 import ctci.chap3.StackTest;
 import ctci.chap3.ThreeStaskTest;
+import ctci.chap4.AllArrayFromTreeTest;
 import ctci.chap4.BuildMinimalTreeTest;
 import ctci.chap4.BuildOrderTest;
 import ctci.chap4.CheckIfBalancedTest;
@@ -45,6 +46,7 @@ import ctci.chap4.RouteBetweenNodesTest;
 import ctci.chap4.SuccesorTest;
 import ctci.chap4.TreeTest;
 import ctci.chap4.ValidateBSTTest;
+import ctci.chap4.checkSubTreeTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({ IsUnique2Test.class, IsUniqueTest.class, IsUnique3Test.class, StringPermutationOfOtherTest.class,
@@ -56,7 +58,8 @@ import ctci.chap4.ValidateBSTTest;
 		AnimalShelterTest2.class, MyQueueTest.class, QueueTest.class, StackOfPlatesTest.class, StackTest.class,
 		BuildMinimalTreeTest.class, GraphTest.class, ListOfDepthsTest.class, PriorityQueueTest.class,
 		RouteBetweenNodesTest.class, TreeTest.class, CheckIfBalancedTest.class, ValidateBSTTest.class,
-		SuccesorTest.class, BuildOrderTest.class, LeastCommonAncestorTest.class })
+		SuccesorTest.class, BuildOrderTest.class, LeastCommonAncestorTest.class, checkSubTreeTest.class,
+		AllArrayFromTreeTest.class })
 
 public class AllTests {
 
