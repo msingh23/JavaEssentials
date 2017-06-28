@@ -44,6 +44,7 @@ import ctci.chap4.ListOfDepthsTest;
 import ctci.chap4.PriorityQueueTest;
 import ctci.chap4.RouteBetweenNodesTest;
 import ctci.chap4.SuccesorTest;
+import ctci.chap4.TreeRandomTest;
 import ctci.chap4.TreeTest;
 import ctci.chap4.ValidateBSTTest;
 import ctci.chap4.checkSubTreeTest;
@@ -59,7 +60,7 @@ import ctci.chap4.checkSubTreeTest;
 		BuildMinimalTreeTest.class, GraphTest.class, ListOfDepthsTest.class, PriorityQueueTest.class,
 		RouteBetweenNodesTest.class, TreeTest.class, CheckIfBalancedTest.class, ValidateBSTTest.class,
 		SuccesorTest.class, BuildOrderTest.class, LeastCommonAncestorTest.class, checkSubTreeTest.class,
-		AllArrayFromTreeTest.class })
+		AllArrayFromTreeTest.class, TreeRandomTest.class })
 
 public class AllTests {
 
