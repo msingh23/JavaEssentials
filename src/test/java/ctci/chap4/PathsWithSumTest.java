@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ctci.chap4.Tree.TreeNode;
+import junit.framework.Assert;
 
 public class PathsWithSumTest {
 
@@ -47,9 +48,9 @@ public class PathsWithSumTest {
 
 	@Test
 	public void test() {
-		System.out.println(handler.getPaths(tree.root, 8));
-		System.out.println(handler.getPathRunTimeOptimised(tree.root, 8));
-		
+		Assert.assertEquals(2, handler.getPaths(tree.root, 8));
+		Assert.assertEquals(2, handler.getPathRunTimeOptimised(tree.root, 8));
+
 	}
 
 }
