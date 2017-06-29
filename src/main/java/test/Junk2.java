@@ -15,5 +15,9 @@ public class Junk2 {
 		Node<Integer> n2 = n1;
 		System.out.println(n1 == n2);
 		System.out.println(n1.equals(n2));
+		
+		
+		int out = 1;
+		System.out.println(-1<<1);
 	}
 }
