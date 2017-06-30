@@ -1,5 +1,8 @@
 package test;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 import ctci.chap2.Node;
 
 public class Junk2 {
@@ -15,9 +18,12 @@ public class Junk2 {
 		Node<Integer> n2 = n1;
 		System.out.println(n1 == n2);
 		System.out.println(n1.equals(n2));
-		
-		
+
 		int out = 1;
-		System.out.println(-1<<1);
+		System.out.println(-1 << 1);
+
+		double d = 1;
+		System.out.println(7.1 / 2);
+		System.out.println(7.1 / 2.0);
 	}
 }
