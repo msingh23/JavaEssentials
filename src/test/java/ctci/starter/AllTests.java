@@ -49,6 +49,7 @@ import ctci.chap4.TreeRandomTest;
 import ctci.chap4.TreeTest;
 import ctci.chap4.ValidateBSTTest;
 import ctci.chap4.checkSubTreeTest;
+import ctci.chap5.FlipBitTest;
 import ctci.chap5.InsertionTest;
 
 @RunWith(Suite.class)
@@ -62,7 +63,8 @@ import ctci.chap5.InsertionTest;
 		BuildMinimalTreeTest.class, GraphTest.class, ListOfDepthsTest.class, PriorityQueueTest.class,
 		RouteBetweenNodesTest.class, TreeTest.class, CheckIfBalancedTest.class, ValidateBSTTest.class,
 		SuccesorTest.class, BuildOrderTest.class, LeastCommonAncestorTest.class, checkSubTreeTest.class,
-		AllArrayFromTreeTest.class, TreeRandomTest.class, PathsWithSumTest.class, InsertionTest.class })
+		AllArrayFromTreeTest.class, TreeRandomTest.class, PathsWithSumTest.class, InsertionTest.class,
+		FlipBitTest.class })
 
 public class AllTests {
 
