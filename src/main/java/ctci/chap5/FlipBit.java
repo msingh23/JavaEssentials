@@ -29,29 +29,47 @@ public class FlipBit {
 				if (!flip) {
 					flip = true;
 					curr = consOnes;
-					curr++;
 					consOnes = 0;
 				} else {
 					if (prevBit == 0) {
 						consOnes = 0;
 					}
-					curr = 1;
-					curr = curr + consOnes;
+					curr = consOnes;
 				}
 			}
 			prevBit = currBit;
-			if (curr > max) {
-				max = curr;
+			if (curr + 1 > max) {
+				max = curr + 1;
 			}
 
-			no = no >> 1;
+			no = no >>> 1;
 		}
-		/*if (!flip) {
-			if (consOnes > max) {
-				max = consOnes;
-			}
-		}*/
+		/*
+		 * if (!flip) { if (consOnes > max) { max = consOnes; } }
+		 */
 
+		return max;
+	}
+
+	public int getLongestSequenceSimple(int n) {
+		if (n == -1) {
+			return Integer.BYTES * 8;
+		}
+		int max = 0;
+		int prevOnes = 0;
+		int currOnes = 0;
+		while (n > 0) {
+
+			if ((n & 1) == 1) {
+				currOnes++;
+			} else {
+				prevOnes = (n >> 2) == 0 ? 0 : currOnes;
+				currOnes = 0;
+
+			}
+			max = Math.max(1 + prevOnes + currOnes, max);
+			n = n >>> 1;
+		}
 		return max;
 	}
 
