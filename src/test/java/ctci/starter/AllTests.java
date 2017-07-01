@@ -52,6 +52,7 @@ import ctci.chap4.checkSubTreeTest;
 import ctci.chap5.FlipBitTest;
 import ctci.chap5.InsertionTest;
 import pramp.ArrayIndexElementEqualityTest;
+import pramp.AwardBudgetCutsTest;
 import pramp.FindTheDuplicatesTest;
 import pramp.SentenceReverseTest;
 import pramp.SmallestSubstringContainingArrayTest;
@@ -69,7 +70,7 @@ import pramp.SmallestSubstringContainingArrayTest;
 		SuccesorTest.class, BuildOrderTest.class, LeastCommonAncestorTest.class, checkSubTreeTest.class,
 		AllArrayFromTreeTest.class, TreeRandomTest.class, PathsWithSumTest.class, InsertionTest.class,
 		FlipBitTest.class, SmallestSubstringContainingArrayTest.class, SentenceReverseTest.class,
-		ArrayIndexElementEqualityTest.class, FindTheDuplicatesTest.class })
+		ArrayIndexElementEqualityTest.class, FindTheDuplicatesTest.class, AwardBudgetCutsTest.class })
 
 public class AllTests {
 
