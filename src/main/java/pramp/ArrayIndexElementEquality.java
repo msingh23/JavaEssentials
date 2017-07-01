@@ -12,7 +12,7 @@ public class ArrayIndexElementEquality {
 	
 	public int getEqualityIndex(int [] inp){
 		
-		return binarySearch(inp, 0 , inp.length);
+		return binarySearch(inp, 0 , inp.length -1 );
 		
 		
 	}
