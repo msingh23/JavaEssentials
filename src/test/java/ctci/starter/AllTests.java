@@ -53,6 +53,7 @@ import ctci.chap5.FlipBitTest;
 import ctci.chap5.InsertionTest;
 import pramp.ArrayIndexElementEqualityTest;
 import pramp.AwardBudgetCutsTest;
+import pramp.BasicRegexParserTest;
 import pramp.BracketMatchTest;
 import pramp.FindTheDuplicatesTest;
 import pramp.FlattenDictionaryTest;
@@ -73,7 +74,7 @@ import pramp.SmallestSubstringContainingArrayTest;
 		AllArrayFromTreeTest.class, TreeRandomTest.class, PathsWithSumTest.class, InsertionTest.class,
 		FlipBitTest.class, SmallestSubstringContainingArrayTest.class, SentenceReverseTest.class,
 		ArrayIndexElementEqualityTest.class, FindTheDuplicatesTest.class, AwardBudgetCutsTest.class,
-		BracketMatchTest.class, FlattenDictionaryTest.class })
+		BracketMatchTest.class, FlattenDictionaryTest.class, BasicRegexParserTest.class })
 
 public class AllTests {
 
