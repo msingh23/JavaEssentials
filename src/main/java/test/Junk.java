@@ -27,6 +27,9 @@ public class Junk {
 		for (int i = 0; i < in.length; i++) {
 			set.add(in[i]);
 		}
+		
+		System.out.println(1<<5);
+		
 
 	}
 
