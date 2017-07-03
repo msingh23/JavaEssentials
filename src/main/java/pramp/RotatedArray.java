@@ -20,10 +20,20 @@ class RotatedArray {
 		while (start <= end) {
 			if (inp[mid] == num)
 				return mid;
-			else if (inp[start] <= inp[mid] && inp[mid] <= inp[end]) 
+			if (inp[0] > inp[mid] ) 
 			{
-				end = mid - 1;
-			} else 
+				if(mid !=end && inp[mid+1] <=num && num<= inp[end])
+				{
+					start =  mid+1;
+				}
+				else
+				{
+					end = mid-1;
+				}
+			} else if(inp[start] <= num && num <= inp[mid])
+			{
+				end  = mid - 1;
+			}else
 			{
 				start = mid + 1;
 			}
