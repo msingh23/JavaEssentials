@@ -1,7 +1,7 @@
 /**
  * 
  */
-package effective.scrape;
+package effective.scrap;
 
 /**
  * @author manu

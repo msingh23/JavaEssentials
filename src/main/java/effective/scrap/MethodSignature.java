@@ -1,4 +1,4 @@
-package effective.scrape;
+package effective.scrap;
 
 public abstract class MethodSignature {
 
