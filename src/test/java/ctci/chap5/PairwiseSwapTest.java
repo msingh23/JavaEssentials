@@ -43,6 +43,10 @@ public class PairwiseSwapTest {
 		Assert.assertEquals(161, handler.pairWiseSwap(x));
 		Assert.assertEquals(1, handler.pairWiseSwap(x1));
 		Assert.assertEquals(0, handler.pairWiseSwap(x2));
+		
+		Assert.assertEquals(161, handler.pairWiseSwap2(x));
+		Assert.assertEquals(1, handler.pairWiseSwap2(x1));
+		Assert.assertEquals(0, handler.pairWiseSwap2(x2));
 	}
 
 }

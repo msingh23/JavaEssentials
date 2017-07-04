@@ -22,5 +22,17 @@ public class PairwiseSwap {
 		}
 		return out;
 	}
+	
+	/*
+	 * 
+	 * binary representation of 0x5 is 0101
+	 * binary representation of 0xa is 1010
+	 * 
+	 */
+	
+	public int pairWiseSwap2(int x)
+	{
+		return (x & 0xaaaaaaaa)>>>1 | (x & 0x55555555)<<1;
+	}
 
 }
