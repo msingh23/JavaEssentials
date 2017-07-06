@@ -45,7 +45,8 @@ public class RobotInGridTest {
 		Assert.assertEquals(false, handler.findPath(grid2));
 		Assert.assertEquals(true, handler.findPathMemoization(grid));
 		Assert.assertEquals(false, handler.findPathMemoization(grid2));
-		
+		Assert.assertEquals(true, handler.findPathMemoizationPath(grid));
+		Assert.assertEquals(false, handler.findPathMemoizationPath(grid2));
 	}
 
 }

@@ -74,4 +74,63 @@ public class RobotInGrid {
 		return mp.get(cor);
 	}
 	
+	public boolean findPathMemoizationPath(int[][] grid)
+	{
+		StringBuffer path = new StringBuffer();
+		HashMap<coordinates, Boolean> map = new HashMap<coordinates, Boolean>();
+		path.append(0);
+		path.append(0);
+		path.append(" ");
+		boolean ans = findPathMemoizationPathHelper(grid, 0, 0 , map, path);
+		System.out.println(path.toString());
+		return ans;
+	}
+
+	private boolean findPathMemoizationPathHelper(int[][] grid, int r, int c, HashMap<coordinates, Boolean> map,
+			StringBuffer path) {
+		
+		
+		if((r == grid.length) || (c == grid[r].length) || grid[r][c] == 1)
+		{
+			 return false;
+		}
+		
+		if((r == grid.length-1) && (c == grid[r].length -1))
+		{
+			return true;
+		}
+		coordinates cor = new coordinates(r, c);
+				
+		if(!map.containsKey(cor))
+		{
+			path.append(r+1);
+			path.append(c);
+			path.append(" ");
+			boolean stepRight = findPathMemoizationPathHelper(grid, r+1, c, map, path);
+			if(!stepRight)
+			{
+				path.delete(path.length()-3, path.length());
+				path.append(r);
+				path.append(c+1);
+				path.append(" ");
+				boolean stepBot = findPathMemoizationPathHelper(grid, r, c+1, map, path);
+				if(!stepBot)
+				{
+					path.delete(path.length()-3, path.length());
+				}
+				map.put(cor, stepBot);
+				
+			}else{
+				
+				map.put(cor, true);;
+			}
+			
+			
+		}
+		
+		return map.get(cor);
+		
+		
+	}
+	
 }
