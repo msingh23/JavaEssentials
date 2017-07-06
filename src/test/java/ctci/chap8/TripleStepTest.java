@@ -50,8 +50,8 @@ public class TripleStepTest {
 	@Before
 	public void setUp() throws Exception {
 		handler = new TripleStep();
-		steps  = new int []{3,4,5};
-		ways = new int []{4,7,13};
+		steps  = new int []{3,4,5, 20};
+		ways = new int []{4,7,13,121415};
 		
 	}
 
@@ -60,6 +60,9 @@ public class TripleStepTest {
 		for(int i = 0 ; i< steps.length ; i++)
 		{
 			Assert.assertEquals(handler.getStepWays(steps[i]), ways[i]);
+			Assert.assertEquals(handler.getStepWaysRecurse(steps[i]), ways[i]);
+			Assert.assertEquals(handler.getStepWaysRecurseMemoization(steps[i]), ways[i]);
+			Assert.assertEquals(handler.getStepWaysIterative(steps[i]), ways[i]);
 		}
 	}
 
