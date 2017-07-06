@@ -54,6 +54,8 @@ import ctci.chap5.FlipBitTest;
 import ctci.chap5.InsertionTest;
 import ctci.chap5.NextNumberTest;
 import ctci.chap5.PairwiseSwapTest;
+import ctci.chap8.TripleStep;
+import ctci.chap8.TripleStepTest;
 import pramp.ArrayIndexElementEqualityTest;
 import pramp.AwardBudgetCutsTest;
 import pramp.BasicRegexParserTest;
@@ -80,7 +82,8 @@ import pramp.SmallestSubstringContainingArrayTest;
 		FlipBitTest.class, SmallestSubstringContainingArrayTest.class, SentenceReverseTest.class,
 		ArrayIndexElementEqualityTest.class, FindTheDuplicatesTest.class, AwardBudgetCutsTest.class,
 		BracketMatchTest.class, FlattenDictionaryTest.class, BasicRegexParserTest.class, IslandCountTest.class,
-		RotatedArrayTest.class, NextNumberTest.class, ConversionTest.class, PairwiseSwapTest.class })
+		RotatedArrayTest.class, NextNumberTest.class, ConversionTest.class, PairwiseSwapTest.class,
+		TripleStepTest.class })
 
 public class AllTests {
 
