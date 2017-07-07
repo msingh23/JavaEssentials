@@ -85,7 +85,7 @@ import pramp.SmallestSubstringContainingArrayTest;
 		ArrayIndexElementEqualityTest.class, FindTheDuplicatesTest.class, AwardBudgetCutsTest.class,
 		BracketMatchTest.class, FlattenDictionaryTest.class, BasicRegexParserTest.class, IslandCountTest.class,
 		RotatedArrayTest.class, NextNumberTest.class, ConversionTest.class, PairwiseSwapTest.class,
-		TripleStepTest.class, RobotInGridTest.class, MagicIndexTest.class })
+		TripleStepTest.class, RobotInGridTest.class, MagicIndexTest.class, MagicIndexTest.class })
 
 public class AllTests {
 
