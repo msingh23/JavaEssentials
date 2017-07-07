@@ -3,7 +3,10 @@
  */
 package ctci.chap8;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author manu
@@ -38,6 +41,16 @@ public class RobotInGrid {
 			// TODO Auto-generated method stub
 			return super.hashCode();
 		}
+		
+		@Override
+		public String toString() {
+			// TODO Auto-generated method stub
+			StringBuffer buff = new StringBuffer();
+			buff.append(this.x);
+			buff.append(this.y);
+			return buff.toString();
+		}
+		
 	}
 
 	private boolean findPathHelper(int[][] grid, int i, int j) {
@@ -131,6 +144,43 @@ public class RobotInGrid {
 		return map.get(cor);
 		
 		
+	}
+	
+	public boolean findPathBottomUp(int[][] grid)
+	{
+		ArrayList<coordinates> list = new ArrayList<coordinates>();
+		Set<coordinates> set = new HashSet<coordinates>();
+		boolean ans = findPathBottomUpHelper(grid, grid.length-1, grid[grid.length-1].length-1, set, list);
+		for(coordinates c : list){
+			System.out.print(c.toString() +" ");
+		}
+		return ans;
+	}
+
+	private boolean findPathBottomUpHelper(int[][] grid, int r, int c, Set<coordinates> set,
+			ArrayList<coordinates> list) {
+		if(r<0 || c<0 || grid[r][c]==1)
+		{
+			return false;
+		}
+		coordinates cor = new coordinates(r, c);
+		if(r==0 && c ==0)
+		{
+			list.add(cor);
+			return true;
+		}
+		
+		if(set.contains(cor)) return false;
+		else
+		{
+			if(findPathBottomUpHelper(grid, r, c-1, set, list) || findPathBottomUpHelper(grid, r-1, c, set, list) )
+			{
+				list.add(cor);
+				return true;
+			}
+		}
+		set.add(cor);	
+		return false;
 	}
 	
 }

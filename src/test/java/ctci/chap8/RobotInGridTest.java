@@ -27,15 +27,15 @@ public class RobotInGridTest {
 	@Before
 	public void setUp() throws Exception {
 		handler = new RobotInGrid();
-		grid = new int [][]{{0,0,0,0,0},
-							{0,0,0,0,0},
-							{0,0,0,0,0},
-							{0,0,0,0,0},
-							{0,0,0,0,0}};
+		grid = new int [][]{{0,0,1,0,0},
+							{0,1,1,0,0},
+							{0,0,1,0,0},
+							{0,0,0,1,0},
+							{0,1,0,0,0}};
 	    grid2 = new int [][]{{0,0,0,0,0},
-							{0,0,0,0,0},
-							{0,0,0,0,0},
-							{0,0,0,0,0},
+							{0,1,0,0,0},
+							{0,0,1,0,0},
+							{0,0,1,0,0},
 							{0,0,0,0,1}};
 	}
 
@@ -47,6 +47,8 @@ public class RobotInGridTest {
 		Assert.assertEquals(false, handler.findPathMemoization(grid2));
 		Assert.assertEquals(true, handler.findPathMemoizationPath(grid));
 		Assert.assertEquals(false, handler.findPathMemoizationPath(grid2));
+		Assert.assertEquals(true, handler.findPathBottomUp(grid));
+		Assert.assertEquals(false, handler.findPathBottomUp(grid2));
 	}
 
 }
