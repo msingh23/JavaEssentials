@@ -60,6 +60,7 @@ import ctci.chap8.RecursiveMultiplyTest;
 import ctci.chap8.RobotInGridTest;
 import ctci.chap8.TripleStep;
 import ctci.chap8.TripleStepTest;
+import ctci.chap8.XpowerNTest;
 import pramp.ArrayIndexElementEqualityTest;
 import pramp.AwardBudgetCutsTest;
 import pramp.BasicRegexParserTest;
@@ -88,7 +89,7 @@ import pramp.SmallestSubstringContainingArrayTest;
 		BracketMatchTest.class, FlattenDictionaryTest.class, BasicRegexParserTest.class, IslandCountTest.class,
 		RotatedArrayTest.class, NextNumberTest.class, ConversionTest.class, PairwiseSwapTest.class,
 		TripleStepTest.class, RobotInGridTest.class, MagicIndexTest.class, MagicIndexTest.class, PowerSetTest.class,
-		RecursiveMultiplyTest.class })
+		RecursiveMultiplyTest.class, XpowerNTest.class })
 
 public class AllTests {
 
