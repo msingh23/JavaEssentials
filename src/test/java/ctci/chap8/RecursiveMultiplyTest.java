@@ -16,12 +16,13 @@ public class RecursiveMultiplyTest {
 	public void setUp() throws Exception {
 		handler = new RecursiveMultiply();
 		a = 12;
-		b = 10;
+		b = 19;
 	}
 
 	@Test
 	public void test() {
-		Assert.assertEquals(120, handler.multiply(a, b));
+		Assert.assertEquals(228, handler.multiply(a, b));
+		Assert.assertEquals(228, handler.multiplyMemoization(a, b));
 	}
 
 }
