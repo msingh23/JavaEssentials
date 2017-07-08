@@ -54,8 +54,30 @@ public class RecursiveMultiply {
 		}
 		mem[small] = sum1+sum2;
 		return mem[small];
-		
+	}
+	
+	public int multiplyEfficient(int a , int b){
+		int small = a < b ? a : b;
+		int big = a > b ? a : b;
+		return multiplyEfficientHelper(big, small);
+	}
 
+	private int multiplyEfficientHelper(int big, int small) {
+		if(small == 0 )
+		{
+			return 0 ;
+		}
+		if(small == 1)
+		{
+			return big;
+		}
+		int half = small >> 1;
+		int sum1 = multiplyEfficientHelper(big, half);
+		if(small % 2 == 1)
+		{
+			return sum1 + sum1 + big;
+		}
 		
+		return sum1 + sum1;
 	}
 }

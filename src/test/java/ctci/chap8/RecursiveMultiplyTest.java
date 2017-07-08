@@ -23,6 +23,7 @@ public class RecursiveMultiplyTest {
 	public void test() {
 		Assert.assertEquals(228, handler.multiply(a, b));
 		Assert.assertEquals(228, handler.multiplyMemoization(a, b));
+		Assert.assertEquals(228, handler.multiplyEfficient(a, b));
 	}
 
 }
