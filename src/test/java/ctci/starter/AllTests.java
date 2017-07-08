@@ -58,6 +58,8 @@ import ctci.chap8.MagicIndexTest;
 import ctci.chap8.PowerSetTest;
 import ctci.chap8.RecursiveMultiplyTest;
 import ctci.chap8.RobotInGridTest;
+import ctci.chap8.TowerOfHanoi;
+import ctci.chap8.TowerOfHanoiTest;
 import ctci.chap8.TripleStep;
 import ctci.chap8.TripleStepTest;
 import ctci.chap8.XpowerNTest;
@@ -89,7 +91,7 @@ import pramp.SmallestSubstringContainingArrayTest;
 		BracketMatchTest.class, FlattenDictionaryTest.class, BasicRegexParserTest.class, IslandCountTest.class,
 		RotatedArrayTest.class, NextNumberTest.class, ConversionTest.class, PairwiseSwapTest.class,
 		TripleStepTest.class, RobotInGridTest.class, MagicIndexTest.class, MagicIndexTest.class, PowerSetTest.class,
-		RecursiveMultiplyTest.class, XpowerNTest.class })
+		RecursiveMultiplyTest.class, XpowerNTest.class, TowerOfHanoiTest.class })
 
 public class AllTests {
 
