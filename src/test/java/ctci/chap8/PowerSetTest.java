@@ -19,6 +19,7 @@ public class PowerSetTest {
 	@Test
 	public void test() {
 		System.out.println(handler.getSet(set));
+		System.out.println(handler.getSetsBinary(set));
 	}
 
 }
