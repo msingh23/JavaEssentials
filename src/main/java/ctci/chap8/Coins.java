@@ -3,7 +3,6 @@
  */
 package ctci.chap8;
 
-import java.lang.management.ManagementFactory;
 import java.util.ArrayList;
 import java.util.HashMap;
 
