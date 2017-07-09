@@ -41,9 +41,6 @@ public class PermutationWithDups {
 				}
 			}
 		}
-		
-		
-		
 	}
 
 	private void generateMap(String inp, HashMap<Character, Integer> mp) {
