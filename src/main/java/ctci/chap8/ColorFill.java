@@ -3,7 +3,7 @@ package ctci.chap8;
 public class ColorFill {
 
 	public enum Color {
-		green, blue, orange, red, white
+		green, blue, orange, red, white;
 	}
 
 	public boolean colorFill(Color ncolor, Color[][] screen, int r, int c) {
