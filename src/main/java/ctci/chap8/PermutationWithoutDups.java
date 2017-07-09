@@ -107,10 +107,38 @@ public class PermutationWithoutDups {
 		}
 		return out;
 	}
+	
+	public ArrayList<String> getPermTopDown(String inp)
+	{
+		ArrayList<String> out = new ArrayList<String>();
+		getPermTopDownHelper(inp, out, new StringBuffer(""), inp.length());
+		return out;
+	}
+
+	private void getPermTopDownHelper(String inp, ArrayList<String> out, StringBuffer prefix, int length) {
+		
+		if(prefix.length() ==length)
+		{
+			out.add(prefix.toString());
+		}else{
+			for(int i = 0 ; i<inp.length(); i++)
+			{
+				String pre = inp.substring(0, i);
+				String mid = inp.substring(i,i+1);
+				String end = inp.substring(i+1);
+				getPermTopDownHelper(pre+end, out, prefix.append(mid), length);
+				prefix.deleteCharAt(prefix.length()-1);
+			}
+		}
+		
+		
+	}
 
 	public static void main(String[] args) {
 		PermutationWithoutDups perm = new PermutationWithoutDups();
 		System.out.println(perm.getAllPermutations("hel"));
 		System.out.println(perm.getPerm("hel"));
+		System.out.println(perm.getPermTopDown("hel"));
+		
 	}
 }
