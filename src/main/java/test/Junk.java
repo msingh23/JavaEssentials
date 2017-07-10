@@ -30,6 +30,13 @@ public class Junk {
 		
 		System.out.println(1<<0);
 		
+		
+		String s = "aaabbbcdefcdefgggggggggggggggcde";
+		String [] arr= (s.trim().split("f"));
+		for(int i = 0 ; i< arr.length; i++){
+			System.out.println(arr[i]);
+		}
+		
 
 	}
 
