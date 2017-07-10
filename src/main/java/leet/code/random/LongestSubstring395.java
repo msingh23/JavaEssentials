@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 public class LongestSubstring395 {
     
+    
 /*
 aaeebzbccdd
 
@@ -15,7 +16,10 @@ a:2, b:2, c:2 , e:2, z:1 , d:2
 
 */
 
-    
+    /*
+    Brute force
+    */
+   
     public int longestSubstringHelper(String s, int start, int end, int k )
     {
         if(start<=end)
@@ -42,51 +46,60 @@ a:2, b:2, c:2 , e:2, z:1 , d:2
         return 0;
     }
     
+    /*
+    
+    aaaabccbcc
+    */
+    
+    /*
+    //Throwing stackoverflow
+    
     public int longestSubstring(String s, int k) {
+        int left = 0;
+        int right = s.length();
+       
+        if(k==0 || right<k)
+        {
+         return 0;    
+        }   
+        
+        int [] freq = getFrequency(s);
+        
+        for(int i = 0 ; i < s.length() ; i++)
+        {
+            if(freq[s.charAt(i)-'a']>0 && freq[s.charAt(i)-'a']<k)
+            {
+                 left = longestSubstring(s.substring(0,i),k);
+                 right = longestSubstring(s.substring(i+1,s.length()),k);
+               // break;
+                return Math.max(left, right);
+            }
+        }
+      return s.length();
+    }
+
+*/
+    
+     public int longestSubstring(String s, int k) {
         int max = 0;
         if(k==0) return k;
-        
-        if(isValid(s,k)){
+        String splitter = getInvalidChar(s,k);
+        if(splitter==""){
             return s.length();
         }else{
-            ArrayList<String> sub = split(s,k);
-            for(String st : sub){
-                int len = longestSubstring(st, k);
+            String [] splits = s.split(splitter);
+            for(int i = 0 ; i < splits.length; i ++)
+            {
+                int len = longestSubstring(splits[i], k);
                 if(max<len){
                     max= len;
                 }
-            }
+            }   
             return max;
         }
-        
-     
-        
-        //return longestSubstringHelper(s, 0 , s.length()-1 , k)       
-        
+         //return s.length();
     }
-    public ArrayList<String> split(String str, int k)
-    {
-       int freq [] =  getFrequency(str);
-        
-        ArrayList<String> out = new ArrayList<String>();
-        out.add(str);
-        
-        for(int i = 0 ; i < freq.length; i++){
-            ArrayList<String> temp = new ArrayList<String>(); 
-            if(freq[i]>0 && freq[i]<k)
-            {
-                for(String sub : out)
-                {
-                	String splitter = String.valueOf((char)(i+'a'));
-                    String subs[] = sub.split(String.valueOf((char)(i+'a')));
-                    temp.addAll(Arrays.asList(subs));
-                    
-                }
-                out = new ArrayList<String>(temp);
-            }
-        }
-        return out;
-    }
+   
     
     public int [] getFrequency(String str)
     {
@@ -111,5 +124,19 @@ a:2, b:2, c:2 , e:2, z:1 , d:2
             }
         }
         return true;
+    }
+    
+     public String getInvalidChar(String str, int k )
+    {
+        int freq [] = getFrequency(str);    
+        
+        for(int i = 0 ; i < 26; i++)
+        {
+            if(freq[i]>0 && freq[i]<k)
+            {
+                return String.valueOf((char)(i+'a'));
+            }
+        }
+        return "";
     }
 }
