@@ -62,6 +62,8 @@ public class LongestSubstring395Test {
 		out = new int[] { 15, 301 };
 	}
 
+	
+	
 	@Test
 	public void test() {
 		for (int i = 0; i < inp.length; i++) {

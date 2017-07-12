@@ -63,6 +63,8 @@ import ctci.chap8.TowerOfHanoiTest;
 import ctci.chap8.TripleStep;
 import ctci.chap8.TripleStepTest;
 import ctci.chap8.XpowerNTest;
+import leet.code.random.IPO502Test;
+import leet.code.random.LongestSubstring395Test;
 import pramp.ArrayIndexElementEqualityTest;
 import pramp.AwardBudgetCutsTest;
 import pramp.BasicRegexParserTest;
@@ -91,7 +93,8 @@ import pramp.SmallestSubstringContainingArrayTest;
 		BracketMatchTest.class, FlattenDictionaryTest.class, BasicRegexParserTest.class, IslandCountTest.class,
 		RotatedArrayTest.class, NextNumberTest.class, ConversionTest.class, PairwiseSwapTest.class,
 		TripleStepTest.class, RobotInGridTest.class, MagicIndexTest.class, MagicIndexTest.class, PowerSetTest.class,
-		RecursiveMultiplyTest.class, XpowerNTest.class, TowerOfHanoiTest.class })
+		RecursiveMultiplyTest.class, XpowerNTest.class, TowerOfHanoiTest.class, LongestSubstring395Test.class,
+		IPO502Test.class })
 
 public class AllTests {
 
