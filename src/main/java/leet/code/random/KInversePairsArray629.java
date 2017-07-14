@@ -23,7 +23,6 @@ public class KInversePairsArray629 {
 		if (mem[n][k] != null)
 			return mem[n][k];
 		mem[n][k] = 0;
-		int val = 0;
 		for (int i = 0; i <= Math.min(k, n - 1); i++) {
 			mem[n][k] += kInversePairs(n - 1, k - i);
 		}
