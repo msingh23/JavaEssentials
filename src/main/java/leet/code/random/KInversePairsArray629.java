@@ -8,7 +8,26 @@ package leet.code.random;
  *
  */
 public class KInversePairsArray629 {
-
+	
+	public int kInversePairsOptimalDP(int n , int k){
+		int [][] dp = new int [n+1][k+1];
+        for(int i =1; i<=n;i++){
+            for(int j = 0 ; j<=k; j++){
+                
+                if(j==0){
+                    dp[i][j] = 1;
+                }
+                else{
+                    int val = (dp[i-1][j] +1000000007 - ((j-i)>=0 ? dp[i-1][j-i] : 0 )) % 1000000007;
+                    dp[i][j] = (val + dp[i][j-1]) % 1000000007;
+                }
+                
+            }
+        }
+        
+        return (dp[n][k] +1000000007 - ((k-1)>=0 ? dp[n][k-1] : 0)) % 1000000007;
+        
+	}
     public int kInversePairsDPx(int n, int k) {
         int [][] mem = new int [n+1][k+1];
         for(int i =1;i<=n;i++){
@@ -44,5 +63,10 @@ public class KInversePairsArray629 {
 			mem[n][k] += kInversePairs(n - 1, k - i);
 		}
 		return mem[n][k];
+	}
+	
+	public static void main(String[] args) {
+		KInversePairsArray629 kinv = new KInversePairsArray629();
+		System.out.println(kinv.kInversePairsOptimalDP(3, 1));
 	}
 }
