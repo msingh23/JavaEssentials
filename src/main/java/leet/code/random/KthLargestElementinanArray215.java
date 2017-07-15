@@ -11,18 +11,15 @@ import java.util.PriorityQueue;
  */
 public class KthLargestElementinanArray215 {
 
-	 public int findKthLargest(int[] nums, int k) {
-	        PriorityQueue<Integer> maxH = new PriorityQueue<Integer>((a,b)->b-a);
-	        for(int i = 0 ; i<nums.length; i++){
-	            maxH.add(nums[i]);
-	        }
-	        
-	        int kthLargest = -1;
-	        while(k>0){
-	            kthLargest = maxH.poll();
-	            k--;
-	        }
-	        return kthLargest;
-	    }
+	public int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> maxH = new PriorityQueue<Integer>((a,b)->a-b);
+        for(int i = 0 ; i<nums.length; i++){
+            maxH.add(nums[i]);
+            if(maxH.size()>k){
+                maxH.poll();
+            }
+        }
+        return maxH.peek();
+    }
 	
 }
