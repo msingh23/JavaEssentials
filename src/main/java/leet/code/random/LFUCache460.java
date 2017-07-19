@@ -5,6 +5,7 @@ package leet.code.random;
 
 import java.util.HashMap;
 import java.util.PriorityQueue;
+import java.util.TreeMap;
 
 /**
  * @author manu
@@ -13,7 +14,7 @@ import java.util.PriorityQueue;
 public class LFUCache460 {
     
 	  /*
-	  nlogn 
+	  0(n) 
 	  
 	  
 	HashMap<Integer,Integer> mp = new HashMap<Integer, Integer>();
@@ -82,6 +83,9 @@ public class LFUCache460 {
 	
   */
 	
+	/*
+	 0(logn)
+	
     HashMap<Integer,CacheItem> mp = new HashMap<Integer, CacheItem>();
     PriorityQueue<CacheItem> pq = new PriorityQueue<CacheItem>((a,b)-> a.count == b.count ? a.time - b.time : a.count - b.count);
     int time =0;
@@ -144,6 +148,84 @@ public class LFUCache460 {
                 pq.add(exist);
                 
              }
+         
+     }
+    
+    
+    public class CacheItem{
+        
+        int val; 
+        int count;
+        int time;
+        int key;
+        
+        public CacheItem( int val, int count, int time, int key)
+        {
+            this.val = val;
+            this.count = count;
+            this.time = time;
+            this.key = key;
+        }
+        
+    }
+    
+    */
+	HashMap<Integer, CacheItem> mp = new HashMap<Integer, CacheItem>();
+    TreeMap<CacheItem, Integer> sortmp = new TreeMap<CacheItem, Integer>((a,b)-> a.count == b.count ? a.time - b.time : a.count - b.count);
+    int time =0;
+    int capacity = 0;
+    
+    public LFUCache460(int capacity) 
+    {
+        this.capacity = capacity;
+    }
+    
+     public int get(int key) 
+     {
+         
+         CacheItem item = mp.getOrDefault(key, null);
+         if(null == item) return -1;
+         mp.remove(key);
+         sortmp.remove(item);
+         item.count+=1;
+         item.time = time++;
+         mp.put(key, item);
+         sortmp.put(item, key);
+         
+         return item.val;
+         
+     }
+    
+     public void put(int key, int value) 
+     {
+         CacheItem item = mp.getOrDefault(key, null);
+         if(null == item)
+         {
+            if(0 == capacity)
+            {
+                if(sortmp.size()==0) return;
+               CacheItem less =  sortmp.pollFirstEntry().getKey();
+                mp.remove(less.key);
+                capacity++;
+            }
+             
+            CacheItem newItem = new CacheItem(value, 0, time++, key);
+            mp.put(key, newItem);
+            sortmp.put(newItem, key);
+            capacity--;
+             
+         }else
+         {
+             sortmp.remove(item);
+             item.count+=1;
+             item.time = time++;
+             item.val = value;
+             mp.remove(key);
+             mp.put(key, item);
+             sortmp.put(item, key);
+             
+         }
+        
          
      }
     
