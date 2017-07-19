@@ -82,88 +82,88 @@ public class LFUCache460 {
 	
   */
 	
-	    HashMap<Integer,CacheItem> mp = new HashMap<Integer, CacheItem>();
-	    PriorityQueue<CacheItem> pq = new PriorityQueue<CacheItem>((a,b)-> a.count == b.count ? a.time - b.time : a.count - b.count);
-	    //PriorityQueue<CacheItem> pq2= new PriorityQueue<CacheItem>((a,b)-> a.count == b.count ? a.time - b.time : a.count - b.count);
-	    //int size =0;
-	    int time =0;
-	    int capacity = 0;
-	    
-	    public LFUCache460(int capacity) 
-	    {
-	        this.capacity = capacity;
-	    }
-	    
-	      public int get(int key) 
-	      {
-	          CacheItem item = mp.getOrDefault(key, null);
-	          if(item ==null)
-	          {
-	              return -1;
-	          }else
-	          {
-	              pq.remove(item);
-	              CacheItem newItem = new CacheItem(item.val,item.count+1,time++, key);
-	              pq.add(newItem);
-	              mp.put(key, newItem);
-	          }
-	          return item.val;
-	      }
-	    
-	     public void put(int key, int value) 
-	     {
-	         
-	         CacheItem exist = mp.getOrDefault(key , null);
-	         
-	          if(exist ==null){
-	              
-	              if(capacity==0)
-	                {
-	             
-	                    if(pq.isEmpty())
-	                      {
-	                         return;
-	                      }
-	                  else
-	                     {
-	                        CacheItem low = pq.poll();
-	                        mp.remove(low.key);
-	                        capacity++;
-	                      }
-	                }
-	              
-	                 CacheItem add = new CacheItem(value, 0, time++, key);
-	                 mp.put(key,add);
-	                 pq.add(add);
-	                 capacity--;
-	            }             
-	            else
-	             {
-	                 pq.remove(exist);
-	                 CacheItem newItem = new CacheItem(value,exist.count+1,time++, key);
-	                 mp.put(key,newItem);
-	                 pq.add(newItem);
-	             }
-	         
-	     }
-	    
-	    
-	    public class CacheItem{
-	        
-	        int val; 
-	        int count;
-	        int time;
-	        int key;
-	        
-	        public CacheItem( int val, int count, int time, int key)
-	        {
-	            this.val = val;
-	            this.count = count;
-	            this.time = time;
-	            this.key = key;
-	        }
-	        
-	    }
+    HashMap<Integer,CacheItem> mp = new HashMap<Integer, CacheItem>();
+    PriorityQueue<CacheItem> pq = new PriorityQueue<CacheItem>((a,b)-> a.count == b.count ? a.time - b.time : a.count - b.count);
+    int time =0;
+    int capacity = 0;
+    
+    public LFUCache460(int capacity) 
+    {
+        this.capacity = capacity;
+    }
+    
+      public int get(int key) 
+      {
+          CacheItem item = mp.getOrDefault(key, null);
+          if(item ==null)
+          {
+              return -1;
+          }else
+          {
+              pq.remove(item);
+              item.count =  item.count+1;
+              item.time = time++;
+              pq.add(item);
+          }
+          return item.val;
+      }
+    
+     public void put(int key, int value) 
+     {
+         
+         CacheItem exist = mp.getOrDefault(key , null);
+         
+          if(exist ==null){
+              
+              if(capacity==0)
+                {
+             
+                    if(pq.isEmpty())
+                      {
+                         return;
+                      }
+                  else
+                     {
+                        CacheItem low = pq.poll();
+                        mp.remove(low.key);
+                        capacity++;
+                      }
+                }
+              
+                 CacheItem add = new CacheItem(value, 0, time++, key);
+                 mp.put(key,add);
+                 pq.add(add);
+                 capacity--;
+            }             
+            else
+             {
+                 pq.remove(exist);
+                exist.count =  exist.count+1;
+                exist.time = time++;
+                exist.val = value;
+                pq.add(exist);
+                
+             }
+         
+     }
+    
+    
+    public class CacheItem{
+        
+        int val; 
+        int count;
+        int time;
+        int key;
+        
+        public CacheItem( int val, int count, int time, int key)
+        {
+            this.val = val;
+            this.count = count;
+            this.time = time;
+            this.key = key;
+        }
+        
+    }
     
 
 	
