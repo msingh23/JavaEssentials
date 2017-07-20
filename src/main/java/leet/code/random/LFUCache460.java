@@ -251,6 +251,11 @@ public class LFUCache460 {
         }
         
     }
+    
+    
+    /*
+     * 0(1)
+     */
     int capacity;
     Node head = new Node();
     HashMap<Integer, Integer> mp = new HashMap<Integer, Integer>();
