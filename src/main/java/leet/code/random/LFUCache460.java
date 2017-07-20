@@ -4,6 +4,7 @@
 package leet.code.random;
 
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.PriorityQueue;
 import java.util.TreeMap;
 
@@ -170,6 +171,10 @@ public class LFUCache460 {
     }
     
     */
+	
+	/*
+	 * logn
+	 
 	HashMap<Integer, CacheItem> mp = new HashMap<Integer, CacheItem>();
     TreeMap<CacheItem, Integer> sortmp = new TreeMap<CacheItem, Integer>((a,b)-> a.count == b.count ? a.time - b.time : a.count - b.count);
     int time =0;
@@ -229,7 +234,7 @@ public class LFUCache460 {
          
      }
     
-    
+    */
     public class CacheItem{
         
         int val; 
@@ -246,20 +251,163 @@ public class LFUCache460 {
         }
         
     }
+    int capacity;
+    Node head = new Node();
+    HashMap<Integer, Integer> mp = new HashMap<Integer, Integer>();
+    HashMap<Integer, Node> countMap = new HashMap<Integer, Node>();
     
+    
+    public LFUCache460(int capacity) 
+    {
+        this.capacity = capacity;
+    }    
+    public int get(int key)
+    {
+        int val = mp.getOrDefault(key, -1);
+        if(-1 ==val) return val;
+        updateCount(key);
+        return val;
+    }
+    
+    public void createCountNode(Node current, Node next, int key)
+    {
+        if(next == null){
+            next = new Node();    
+            next.count = current.count+1;  
+            next.next = current.next ;
+            next.prev= current;
+            current.next =next;
+            if(next.next!=null)
+            next.next.prev= next;
+        }
+         current.set.remove(key);
+        if(current.set.size()==0)
+        {
+            remove(current);
+        }
+         next.set.add(key);
+        
+    }
+    public void remove(Node curr)
+    {
+        if(curr.next!=null){
+            curr.next.prev = curr.prev;
+        }
+        if(curr.prev !=null){
+            curr.prev.next = curr.next;
+        }
+    }
+    
+    public void updateCount(int key)
+    {
+        
+            Node countNode = countMap.get(key);
+            if(countNode.next ==null || countNode.next.count>countNode.count+1)
+            {
+                createCountNode(countNode, null, key);
+            }
+            else
+            {
+                createCountNode(countNode, countNode.next, key);
+            }
+            
+        countMap.put(key,countNode.next);
+           
+       
+    }
+    
+     public void put(int key, int value) 
+     {
+         int val = mp.getOrDefault(key, -1);
+         if(val ==-1)
+         {
+             if(capacity>0)
+             {
+                 mp.put(key, value);
+                 //addToHead(key);
+                 capacity--;
+             }
+             else if(capacity==0)
+             {
+                 if(head.next==null) return ;
+                 removeOld();
+                 mp.put(key, value);
+             }
+             addToHead(key);
+         }else
+         {
+             mp.put(key, value);
+             updateCount(key);
+         }
+         
+         
+     }
+    
+    public void addToHead(int key)
+    {
+        if(null == head.next)
+        {
+            Node node = new Node();
+            node.set.add(key);
+            head.next = node;
+            node.prev = head; 
+        }else{
+        	
+        	if(head.next.count>0){
+        		 Node node = new Node();
+                 node.set.add(key);
+                 node.next = head.next;
+                 node.prev= head;
+                 head.next= node;
+                 node.next.prev=node;
+                 
+        	}else{
+        		head.next.set.add(key);
+        	}
+        }
+        countMap.put(key, head.next);
+    }
+         
+    public void removeOld()
+    {
+        if(null == head.next) return ;
+        int old = 0;
+        for(int key: head.next.set)
+        {
+            old = key;
+            break;
+        }
+        mp.remove(old);
+        head.next.set.remove(old);
+        if(head.next.set.size()==0){
+            remove(head.next);
+        }
+        countMap.remove(old);
+        
+    }
+    public class Node
+    {
+    
+    Node prev = null;
+    Node next = null;
+    int count = 0;
+    LinkedHashSet<Integer> set = new LinkedHashSet<Integer>();
+    
+    }
 
 	
     public static void main(String[] args) {
-		LFUCache460 ca = new LFUCache460(2);
-		ca.put(1, 1);
+		LFUCache460 ca = new LFUCache460(3);
 		ca.put(2, 2);
-		System.out.println(ca.get(1));
-		ca.put(3, 3);
+		ca.put(1, 1);
 		System.out.println(ca.get(2));
-		System.out.println(ca.get(3));
-		ca.put(4, 4);
 		System.out.println(ca.get(1));
+		System.out.println(ca.get(2));
+		ca.put(3, 3);
+		ca.put(4, 4);
 		System.out.println(ca.get(3));
+		System.out.println(ca.get(2));
+		System.out.println(ca.get(1));
 		System.out.println(ca.get(4));
 		
 	}
