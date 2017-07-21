@@ -9,10 +9,13 @@ import java.util.PriorityQueue;
  * @author manu
  *
  */
-public class KthSmallestElementinaSortedMatrix378 {
+public class KthSmallestElementInASortedMatrix378 {
 
 	public int kthSmallest(int[][] matrix, int k) {
 
+		/*
+		 * Nlogk
+		 */
 		PriorityQueue<Integer> pq = new PriorityQueue<Integer>((a, b) -> b - a);
 		int n = matrix.length;
 		for (int i = 0; i < n; i++) {
