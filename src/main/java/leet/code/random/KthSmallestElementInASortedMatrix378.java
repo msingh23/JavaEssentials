@@ -10,12 +10,12 @@ import java.util.PriorityQueue;
  *
  */
 public class KthSmallestElementInASortedMatrix378 {
-
+	/*
+	 * N^2logk
 	public int kthSmallest(int[][] matrix, int k) {
 
-		/*
-		 * Nlogk
-		 */
+	
+		 
 		PriorityQueue<Integer> pq = new PriorityQueue<Integer>((a, b) -> b - a);
 		int n = matrix.length;
 		for (int i = 0; i < n; i++) {
@@ -36,4 +36,35 @@ public class KthSmallestElementInASortedMatrix378 {
 		return pq.poll();
 
 	}
+	*/
+	 /*
+	    *nlogk
+	    */
+	    public class Tuple{
+	        int x; int y; int val;
+	        
+	        public Tuple(int x, int y, int val){
+	            this.x = x;
+	            this.y = y;
+	            this.val = val;
+	        }
+	    }
+	    
+	    public int kthSmallest(int[][] matrix, int k){
+	        
+	        int n = matrix.length;
+	        PriorityQueue<Tuple> pq = new PriorityQueue<Tuple>((a,b)->a.val-b.val);
+	        
+	        for(int i =0 ; i<n; i++ )
+	        {
+	            pq.add(new Tuple(0, i, matrix[0][i]));
+	        }
+	        
+	        for(int i =1;i< k; i++){
+	            Tuple low = pq.poll();
+	            if(low.x==n-1) continue;
+	            pq.add(new Tuple(low.x+1, low.y, matrix[low.x+1][low.y]));
+	        }
+	        return pq.poll().val;
+	    }
 }
