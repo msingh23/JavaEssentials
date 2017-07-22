@@ -4,6 +4,8 @@
 package test;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.Set;
 
 /**
@@ -37,6 +39,17 @@ public class Junk {
 			System.out.println(arr[i]);
 		}
 		
+		
+		LinkedList<Integer> set1 = new LinkedList<Integer>();
+		set1.add(1);
+		set1.add(2);
+		set1.add(3);
+		set1.add(4);
+		//System.out.println(set1.get(2));
+		System.out.println(set1.remove(2));
+		System.out.println(set1.remove(2));
+		System.out.println(set1.remove(1));
+		System.out.println(set1.remove(0));
 
 	}
 
