@@ -50,7 +50,12 @@ public class Junk {
 		System.out.println(set1.remove(2));
 		System.out.println(set1.remove(1));
 		System.out.println(set1.remove(0));
-
+		long l = 1000000000000000000l;
+		System.out.println(Math.pow(l,1.0/2));
+		System.out.println(Math.log(l)/Math.log(2));
+	//	System.out.println(log(1, 1));
 	}
-
+	
+	 
+   
 }
