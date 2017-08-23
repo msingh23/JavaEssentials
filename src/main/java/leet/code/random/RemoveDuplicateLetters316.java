@@ -61,7 +61,7 @@ public class RemoveDuplicateLetters316 {
 	// }
 
 	/*
-	 * brute force n!
+	 * brute force 2^n n!
 	 */
 	public String removeDuplicateLetters(String s) {
 
