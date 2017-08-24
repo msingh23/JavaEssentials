@@ -3,6 +3,8 @@
  */
 package leet.code.random;
 
+import java.util.Stack;
+
 /**
  * @author manu
  *
@@ -62,7 +64,7 @@ public class RemoveDuplicateLetters316 {
 
 	/*
 	 * brute force 2^n n!
-	 */
+	
 	public String removeDuplicateLetters(String s) {
 
 		int freq[] = new int[26];
@@ -116,7 +118,47 @@ public class RemoveDuplicateLetters316 {
 
 		return min;
 	}
-
+	 */
+	 public String removeDuplicateLetters(String s) 
+	    {
+	        int n = s.length();
+	        int [] freq = new int [26];
+	        boolean [] include = new boolean [26];
+	        Stack<Character> st = new Stack<Character>();
+	        
+	        for(int i = 0; i <n ; i++)
+	        {
+	            freq[s.charAt(i)-'a']++;
+	        }
+	        
+	        for(int i=0 ; i<n ; i++)
+	        {
+	            char ch = s.charAt(i);
+	            if(include[ch-'a']) 
+             {
+                 freq[ch-'a']--;
+                 continue;
+             }
+               
+	            
+	            while(!st.isEmpty() && st.peek()>ch && freq[st.peek()-'a']>0)
+	            {
+	                
+	                //freq[st.peek()-'a']--;
+	                include[st.peek()-'a']=false;
+	                st.pop();
+	            }
+	            st.push(ch);
+	            freq[ch-'a']--;
+	            include[ch-'a']=true;
+	        }
+	        StringBuffer buff = new StringBuffer();
+	        while(!st.isEmpty())
+	        {
+	            buff.insert(0,st.pop());
+	        }
+	        return buff.toString();
+	    }
 	public static void main(String[] args) {
 		System.out.println(new RemoveDuplicateLetters316().removeDuplicateLetters("bbcaaeae"));
 	}
