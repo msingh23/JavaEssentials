@@ -10,7 +10,7 @@ import java.util.Set;
  * @author manu
  *
  */
-public class ValidSudoku36 {
+public class LC36ValidSudoku {
 
  /*
     

@@ -12,7 +12,7 @@ import java.util.PriorityQueue;
  * @author manu
  *
  */
-public class TaskScheduler621 {
+public class LC621TaskScheduler {
 
 //public int leastInterval(char[] tasks, int n) {
 //        
@@ -108,7 +108,7 @@ public class TaskScheduler621 {
 	}
 
 public static void main(String[] args) {
-	TaskScheduler621 t = new TaskScheduler621();
+	LC621TaskScheduler t = new LC621TaskScheduler();
 	System.out.println(t.leastInterval(new char[]{'A','A','A','A','A','A','A','A','A','A','A','A','B','B','B','B','B','B','B','B','B','B','B','B','C','C','C'}, 1));
 }
 	

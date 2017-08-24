@@ -16,7 +16,7 @@ import java.util.TreeMap;
  * @author manu
  *
  */
-public class DataStreamasDisjointIntervals352 {
+public class LC352DataStreamasDisjointIntervals {
 
 	
 	/**
@@ -91,7 +91,7 @@ public class DataStreamasDisjointIntervals352 {
 	  
 
 	public static void main(String[] args) {
-		DataStreamasDisjointIntervals352 ds = new DataStreamasDisjointIntervals352();
+		LC352DataStreamasDisjointIntervals ds = new LC352DataStreamasDisjointIntervals();
 		SummaryRanges sr = ds.new SummaryRanges();
 		sr.addNum(1);
 		sr.print(sr.getIntervals());

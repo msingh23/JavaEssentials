@@ -7,7 +7,7 @@ package leet.code.random;
  * @author manu
  *
  */
-public class LengthofLastWord58 {
+public class LC58LengthofLastWord {
 
 	public int lengthOfLastWord(String s) {
         s= s.trim();

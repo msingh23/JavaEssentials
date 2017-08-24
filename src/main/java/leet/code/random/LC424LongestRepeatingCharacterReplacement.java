@@ -10,7 +10,7 @@ import java.util.Queue;
  * @author manu
  *
  */
-public class LongestRepeatingCharacterReplacement424 {
+public class LC424LongestRepeatingCharacterReplacement {
 
 	// public int characterReplacement(String s, int k) {
 	//
@@ -111,7 +111,7 @@ public class LongestRepeatingCharacterReplacement424 {
 	}
 
 	public static void main(String[] args) {
-		LongestRepeatingCharacterReplacement424 test = new LongestRepeatingCharacterReplacement424();
+		LC424LongestRepeatingCharacterReplacement test = new LC424LongestRepeatingCharacterReplacement();
 		System.out.println(test.characterReplacement(
 				"KRSCDCSONAJNHLBMDQGIFCPEKPOHQIHLTDIQGEKLRLCQNBOHNDQGHJPNDQPERNFSSSRDEQLFPCCCARFMDLHADJADAGNNSBNCJQOF",
 				4));

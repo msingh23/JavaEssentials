@@ -9,7 +9,7 @@ import java.util.LinkedList;
  * @author manu
  *
  */
-public class PermutationSequence60 {
+public class LC60PermutationSequence {
 
 	/*
 	 * O(n!)
@@ -92,7 +92,7 @@ public class PermutationSequence60 {
              return buff.toString();   
     }
 	public static void main(String[] args) {
-		PermutationSequence60 perm = new PermutationSequence60();
+		LC60PermutationSequence perm = new LC60PermutationSequence();
 		System.out.println(perm.getPermutation(3, 6));
 	}
 

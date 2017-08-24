@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
  * @author manu
  *
  */
-public class IPO502 {
+public class LC502IPO {
 	  /*
     Brute Force
  

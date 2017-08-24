@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
  * @author manu
  *
  */
-public class KthSmallestElementInASortedMatrix378 {
+public class LC378KthSmallestElementInASortedMatrix {
 	/*
 	 * N^2logk
 	public int kthSmallest(int[][] matrix, int k) {

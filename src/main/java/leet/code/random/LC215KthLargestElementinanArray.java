@@ -10,7 +10,7 @@ import java.util.Random;
  * @author manu
  *
  */
-public class KthLargestElementinanArray215 {
+public class LC215KthLargestElementinanArray {
 
 	 /*
     nlogk

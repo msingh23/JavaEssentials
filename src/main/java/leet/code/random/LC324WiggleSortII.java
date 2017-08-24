@@ -9,7 +9,7 @@ import java.util.Random;
  * @author manu
  *
  */
-public class WiggleSortII324 {
+public class LC324WiggleSortII {
 
 	   public void wiggleSort(int[] nums) {
 	        

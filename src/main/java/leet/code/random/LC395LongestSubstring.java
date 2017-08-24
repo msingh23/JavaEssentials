@@ -3,7 +3,7 @@ package leet.code.random;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class LongestSubstring395 {
+public class LC395LongestSubstring {
     
     
 /*

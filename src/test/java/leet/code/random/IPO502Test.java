@@ -9,7 +9,7 @@ import junit.framework.Assert;
 
 public class IPO502Test {
 
-	public IPO502 handler;
+	public LC502IPO handler;
 	int [] k;
 	int w [] ;
 	int [][] profits;
@@ -18,7 +18,7 @@ public class IPO502Test {
 	
 	@Before
 	public void setUp() throws Exception {
-		handler = new IPO502();
+		handler = new LC502IPO();
 		k = new int []{2,3,111};
 		w = new int [] {0,0,12};
 		profits = new int [][]{{1,2,3},{1,2,3},{319,178,37,756,152,763,481,1055,594,825,759,494,1087,696,717,358,1091,1145,

@@ -7,7 +7,7 @@ package leet.code.random;
  * @author manu
  *
  */
-public class KInversePairsArray629 {
+public class LC629KInversePairsArray {
 	
 	public int kInversePairsOptimalDP(int n , int k){
 		int [][] dp = new int [n+1][k+1];
@@ -66,7 +66,7 @@ public class KInversePairsArray629 {
 	}
 	
 	public static void main(String[] args) {
-		KInversePairsArray629 kinv = new KInversePairsArray629();
+		LC629KInversePairsArray kinv = new LC629KInversePairsArray();
 		System.out.println(kinv.kInversePairsOptimalDP(3, 1));
 	}
 }

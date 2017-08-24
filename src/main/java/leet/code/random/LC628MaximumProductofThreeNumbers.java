@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @author manu
  *
  */
-public class MaximumProductofThreeNumbers628 {
+public class LC628MaximumProductofThreeNumbers {
 
     /*
     nlogn , nlogn

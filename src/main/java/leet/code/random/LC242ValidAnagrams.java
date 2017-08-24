@@ -7,7 +7,7 @@ package leet.code.random;
  * @author manu
  *
  */
-public class ValidAnagrams242 {
+public class LC242ValidAnagrams {
 
 	
 	public boolean isAnagram(String s, String t) {

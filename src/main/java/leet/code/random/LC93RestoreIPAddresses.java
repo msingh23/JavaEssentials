@@ -11,7 +11,7 @@ import java.util.List;
  *
  */
 
-public class RestoreIPAddresses93 {
+public class LC93RestoreIPAddresses {
 
 	/*
 	 * n!
@@ -96,7 +96,7 @@ public class RestoreIPAddresses93 {
 	}
 
 	public static void main(String[] args) {
-		RestoreIPAddresses93 ip = new RestoreIPAddresses93();
+		LC93RestoreIPAddresses ip = new LC93RestoreIPAddresses();
 		//ip.restoreIpAddresses2("25525511135");
 		ip.restoreIpAddresses("0000");
 	}

@@ -7,7 +7,7 @@ package leet.code.random;
  * @author manu
  *
  */
-public class SmallestGoodBase483 {
+public class LC483SmallestGoodBase {
 	/*	       
 	 * 
 	 *  bruteforce

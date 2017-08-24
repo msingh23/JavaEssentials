@@ -9,7 +9,7 @@ import java.util.Stack;
  * @author manu
  *
  */
-public class RemoveDuplicateLetters316 {
+public class LC316RemoveDuplicateLetters {
 
 	/*
 	 * brute force
@@ -160,7 +160,7 @@ public class RemoveDuplicateLetters316 {
 	        return buff.toString();
 	    }
 	public static void main(String[] args) {
-		System.out.println(new RemoveDuplicateLetters316().removeDuplicateLetters("bbcaaeae"));
+		System.out.println(new LC316RemoveDuplicateLetters().removeDuplicateLetters("bbcaaeae"));
 	}
 
 }

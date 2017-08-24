@@ -2,7 +2,7 @@ package leet.code.random;
 
 import java.util.Stack;
 
-public class NextGreaterElementII503 {
+public class LC503NextGreaterElementII {
 
 	/*
 	 * O(n^2)

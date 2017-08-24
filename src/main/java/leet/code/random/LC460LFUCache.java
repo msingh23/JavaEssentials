@@ -12,7 +12,7 @@ import java.util.TreeMap;
  * @author manu
  *
  */
-public class LFUCache460 {
+public class LC460LFUCache {
     
 	  /*
 	  0(n) 
@@ -262,7 +262,7 @@ public class LFUCache460 {
     HashMap<Integer, Node> countMap = new HashMap<Integer, Node>();
     
     
-    public LFUCache460(int capacity) 
+    public LC460LFUCache(int capacity) 
     {
         this.capacity = capacity;
     }    
@@ -402,7 +402,7 @@ public class LFUCache460 {
 
 	
     public static void main(String[] args) {
-		LFUCache460 ca = new LFUCache460(3);
+		LC460LFUCache ca = new LC460LFUCache(3);
 		ca.put(2, 2);
 		ca.put(1, 1);
 		System.out.println(ca.get(2));

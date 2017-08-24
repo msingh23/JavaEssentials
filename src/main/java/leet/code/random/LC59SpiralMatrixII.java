@@ -1,6 +1,6 @@
 package leet.code.random;
 
-public class SpiralMatrixII59 {
+public class LC59SpiralMatrixII {
     
     /*
     1  2  3   4  5

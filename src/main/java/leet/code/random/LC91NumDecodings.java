@@ -2,7 +2,7 @@ package leet.code.random;
 
 import java.util.HashMap;
 
-public class NumDecodings91 {
+public class LC91NumDecodings {
 
 	   /*
 	   brute force
@@ -136,7 +136,7 @@ public class NumDecodings91 {
 	    }
 
 	public static void main(String[] args) {
-		NumDecodings91 num = new NumDecodings91();
+		LC91NumDecodings num = new LC91NumDecodings();
 		System.out.println(num.numDecodings("123123"));
 
 	}
