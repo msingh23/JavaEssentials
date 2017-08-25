@@ -54,6 +54,7 @@ public class LC227BasicCalculatorII {
 	        // if(st.size()==1){
 	        //     return st.pop();
 	        // }
+	        //reverse stacks
 	        Stack<Integer> st1 = new Stack<Integer>();
 	        while(!st.isEmpty()) st1.push(st.pop());
 	        st=st1;
