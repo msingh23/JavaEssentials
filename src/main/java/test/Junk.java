@@ -56,9 +56,14 @@ public class Junk {
 		System.out.println(Math.log(l)/Math.log(2));
 	//	System.out.println(log(1, 1));
 		
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		list.add(3, 34);
+//		ArrayList<Integer> list = new ArrayList<Integer>();
+//		list.add(3, 34);
 		
+		int a =  'a';
+		char b = '0';
+		
+		System.out.println(a);
+		System.out.println(Integer.valueOf(b));
 	}
 	
 	 
