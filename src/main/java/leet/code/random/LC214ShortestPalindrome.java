@@ -8,8 +8,23 @@ package leet.code.random;
  *
  */
 public class LC214ShortestPalindrome {
-
-	   public String shortestPalindrome(String s) {
+	///O(nlogn) 
+	 public String shortestPalindrome(String s) {
+			
+		 int j = 0;
+		 int i = s.length() - 1;
+		    for (; i >= 0; i--) {
+		    	System.out.println(s.charAt(j));
+		        if (s.charAt(i) == s.charAt(j)) { j += 1; }
+		    }
+		    System.out.println();
+		    if (j == s.length()) { return s; }
+		    String suffix = s.substring(j);
+		    return new StringBuffer(suffix).reverse().toString() + shortestPalindrome(s.substring(0, j)) + suffix;
+		 }
+	   /*
+	    * O(n^2)
+	    * public String shortestPalindrome(String s) {
 		     
 	        int maxLen =0;
 	        int maxi =0, maxj =0;
@@ -67,10 +82,10 @@ public class LC214ShortestPalindrome {
 	        }
 	        
 	        return new int[]{begin+1, end-1};
-	    }
+	    }*/
     
     public static void main(String[] args) {
-    	String s = "ababbbabbaba";
+    	String s = "adcba";
 		LC214ShortestPalindrome palin = new LC214ShortestPalindrome();
 		System.out.println(palin.shortestPalindrome(s));
 	}
