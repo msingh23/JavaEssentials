@@ -8,6 +8,7 @@ package leet.code.random;
  *
  */
 public class LC214ShortestPalindrome {
+	/*
 	///O(nlogn) 
 	 public String shortestPalindrome(String s) {
 			
@@ -22,6 +23,7 @@ public class LC214ShortestPalindrome {
 		    String suffix = s.substring(j);
 		    return new StringBuffer(suffix).reverse().toString() + shortestPalindrome(s.substring(0, j)) + suffix;
 		 }
+		 */
 	   /*
 	    * O(n^2)
 	    * public String shortestPalindrome(String s) {
@@ -84,8 +86,51 @@ public class LC214ShortestPalindrome {
 	        return new int[]{begin+1, end-1};
 	    }*/
     
+	
+	 public String shortestPalindrome(String s) 
+     {
+         
+         String ss = s + "." + new StringBuffer(s).reverse();
+         int n = ss.length();
+         int [] tab = new int[n];
+         kmpTable(ss, tab);
+         return new StringBuffer(s.substring(tab[n-1])).reverse() + s;
+         
+     }
+    public void kmpTable(String s, int [] tab) 
+    {
+        int  j = 0;
+        tab[0]=0;
+        for(int i = 1 ;i<s.length(); i++ )
+        {
+            if(s.charAt(i)==s.charAt(j))
+            {
+                tab[i] = tab[i-1]+1;
+                j++;
+            }
+            else
+            {
+                j=tab[i-1];
+                while(j>0 && s.charAt(i)!=s.charAt(j)) 
+                {
+                     j = tab[j-1];
+                }
+                if(s.charAt(i)==s.charAt(j))
+               {
+                	j++;
+                    tab[i]=j;
+                   
+               }
+                
+                
+            }
+        }
+        
+        
+    }
+	
     public static void main(String[] args) {
-    	String s = "adcba";
+    	String s = "aacecaaa";
 		LC214ShortestPalindrome palin = new LC214ShortestPalindrome();
 		System.out.println(palin.shortestPalindrome(s));
 	}
