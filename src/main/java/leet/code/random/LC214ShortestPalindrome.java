@@ -86,6 +86,9 @@ public class LC214ShortestPalindrome {
 	        return new int[]{begin+1, end-1};
 	    }*/
     
+	/*
+	 * KMP inspired 0(n)
+	 */
 	
 	 public String shortestPalindrome(String s) 
      {
@@ -126,7 +129,7 @@ public class LC214ShortestPalindrome {
             }
         }
         
-        
+           
     }
 	
     public static void main(String[] args) {
