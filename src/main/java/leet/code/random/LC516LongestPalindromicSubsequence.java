@@ -92,8 +92,8 @@ public class LC516LongestPalindromicSubsequence {
     */
     
     /*
-        O(n^2)  
-    */
+        O(n^2)  recursive
+    
      public int longestPalindromeSubseq(String s)
      {
          int n = s.length();
@@ -124,6 +124,36 @@ public class LC516LongestPalindromicSubsequence {
         }
         return map[start][end];
     }
+    */
+	
+	public int longestPalindromeSubseq(String s)
+    {
+        int n = s.length();
+        int [][] mem = new int [n][n];
+        
+        for(int i = 0 ; i < n ; i ++)
+            for(int j = 0 ; j <n ; j ++)
+            {
+                if(i==j) mem[i][j] = 1;
+            }
+                          
+        for(int i = n-1 ; i >=0 ; i--)
+            for(int j = i+1 ; j <n ; j ++)
+            {
+                if(s.charAt(i) == s.charAt(j))
+                {
+                    mem[i][j] = 2 + mem[i+1][j-1];
+                }
+                else
+                {
+                    mem[i][j] = Math.max(mem[i+1][j] , mem[i] [j-1]);
+                }
+            }
+        
+        return mem[0][n-1];
+        
+    }
+	
    public static void main(String[] args) {
 	LC516LongestPalindromicSubsequence lc = new LC516LongestPalindromicSubsequence();
 	System.out.println(lc.longestPalindromeSubseq("bbbab"));
