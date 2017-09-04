@@ -78,7 +78,8 @@ public class LC42TrappingRainWater {
 	         return total;
 	     }
 	    */
-	     
+	    
+	/*
 	     //using stack
 	     //  1. add the elelemt if it is less than the head of the stack
 	      // 2. if it is greator than or equal the head of stack then do
@@ -110,7 +111,39 @@ public class LC42TrappingRainWater {
 	            
 	            return count;
 	        }
+	       */ 
+	      //using pointers
+	        // for every index maintain left max and right max
+	        // if left is less than right then count + = mathmin(left, left_max) - left; left ++; also update left_max
+	         // similar for rightmax until left < right;
 	        
+	         public int trap(int[] height)
+	         {
+	             int n = height.length;
+	             if(n<3) return 0; 
+	             int left = 0;
+	             int right = n-1;
+	             int count = 0;
+	             int leftMax = height[left];
+	             int rightMax = height[right];
+	             while(left<right)
+	             {
+	                 if(height[left]<height[right])
+	                 {
+	                     leftMax = Math.max(leftMax, height[left]);
+	                     count+= leftMax - height[left];
+	                     left++;
+	                 } 
+	                 else 
+	                 {
+	                     rightMax = Math.max(rightMax, height[right]);
+	                     count+=  rightMax - height[right];
+	                     right--;
+	                 }
+	             }
+	             return count;
+	             
+	         }
 	        
 	    public static void main(String[] args) {
 			
