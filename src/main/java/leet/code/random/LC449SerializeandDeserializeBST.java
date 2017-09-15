@@ -9,6 +9,7 @@ package leet.code.random;
  */
 public class LC449SerializeandDeserializeBST {
 
+	/*
 	 // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         
@@ -50,6 +51,8 @@ public class LC449SerializeandDeserializeBST {
     max = 1
     min = null
     */
+	
+	/*
     public int createBST(TreeNode root, TreeNode max, TreeNode min, int  i, int n, String [] tree)
     {
         if(i<n)
@@ -77,6 +80,76 @@ public class LC449SerializeandDeserializeBST {
                 
         }
         
+        return i;
+    }
+    */
+    // Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+        
+       
+          StringBuffer out = new StringBuffer();
+         if(null == root) return out.toString();
+         preorder(root, out);
+          return out.substring(0, out.length()-1);
+       
+    }
+    
+    public void preorder(TreeNode root, StringBuffer buff)
+    {
+        if(root==null) return;
+        
+        buff.append(root.val);
+        buff.append(",");
+        preorder(root.left, buff);
+        preorder(root.right, buff);
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+        if(data == null ||  data.equals("")) return null;
+        //System.out.println(data);
+        String [] tree = data.split(",");
+        int n = tree.length;
+        int i =0;
+        TreeNode root = new TreeNode(0);
+        createBST(root, null, null, i, n, tree);
+        //createBST(root, null, root, i, n, tree);
+        return root;
+    }
+    /*
+    tree 3 1 2 4
+    root = 3
+    i =2
+    n= 4
+    max = 1
+    min = null
+    */
+    public int createBST(TreeNode root, TreeNode max, TreeNode min, int  i, int n, String [] tree)
+    {
+        if(i<n)
+        {
+            int val  = Integer.parseInt(tree[i++]) ;
+            if( (max==null || max.val > val) && (min==null || min.val < val) ) 
+            {
+                root.val  = val; 
+                root.left = new TreeNode(0);
+                root.right = new TreeNode(0);
+                int stat = createBST(root.left, root, min, i, n, tree);
+                if(stat == i) 
+                    root.left = null;
+                i =stat;
+                    stat = createBST(root.right, max, root, i, n, tree);
+                if(stat == i) 
+                    root.right = null;
+                i = stat;
+            }
+            else
+            {
+                i--;
+                root = null;
+            }
+                
+        }
         return i;
     }
 	
