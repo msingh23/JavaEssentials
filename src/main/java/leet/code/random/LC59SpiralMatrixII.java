@@ -53,4 +53,36 @@ public class LC59SpiralMatrixII {
         }
         return no;
     }
+    
+  public int[][] generateMatrix2(int n) {
+        
+        int [][] out = new int[n][n];
+        int rows = 0, rowe = n-1, cols = 0, cole = n-1;
+        int val =1;
+        while(rows<=rowe && cols<=cole)
+        {
+            //right
+            for(int j = cols; j<= cole ;j++)
+                out[rows][j] = val++;
+            rows++;
+            //down
+            for(int i = rows; i<=rowe;i++)
+                out[i][cole]=val++;
+            cole--;
+            
+            //left
+            for(int j = cole; j>=cols; j--)
+                out[rowe][j] = val++;
+            rowe--;
+            
+            //up
+            for(int i = rowe; i>=rows; i--)
+                out[i][cols] = val++;
+            cols++;
+            
+            
+        }
+        return out;
+        
+    }
 }
