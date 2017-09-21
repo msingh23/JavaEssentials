@@ -13,7 +13,7 @@ import java.util.List;
 public class LC22GenerateParentheses {
 
 	 public List<String> generateParenthesis(int n) {
-	        
+	       
 	        List<String> out = new ArrayList<String>();
 	        StringBuffer buff = new StringBuffer();
 	        
