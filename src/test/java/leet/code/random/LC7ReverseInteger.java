@@ -19,7 +19,6 @@ public class LC7ReverseInteger {
 	        int rev = 0;
 	        while(x>0)
 	        {
-	            
 	            if(rev !=0 && (Integer.MAX_VALUE / rev ) < 10) return 0;
 	            rev*=10;
 	            rev +=  (x % 10);
@@ -28,7 +27,6 @@ public class LC7ReverseInteger {
 	        }
 	        
 	        return !negative ? rev : -rev;
-	        
 	        
 	    }
 }
