@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 
 /**
@@ -79,54 +80,49 @@ public class LC127WordLadder {
     /*
     BFS   
     */
-     public int ladderLength(String beginWord, String endWord, List<String> wordList) 
-     {
-         
-         Set<String> wordSet = new HashSet<String>();
-         for(String word : wordList) wordSet.add(word);
-         
-         Integer min = wordList.size()+1;
-         LinkedList<String> wq = new LinkedList<String>();
-         LinkedList<Integer> cq = new LinkedList<Integer>();
-         wq.add(beginWord);
-         cq.add(1);
-         
-         //Set<String> set = new HashSet<String>(wordSet);
-         //set.add(beginWord);
-         while(!wq.isEmpty())
-         {
-             String curr = wq.poll();
-             Integer count = cq.poll();
-             
-             if(curr.equals(endWord)) return count;
-             
-             for(int i = 0 ;  i<curr.length(); i ++)
-             {
-                
-                 char [] temp = curr.toCharArray();
-                 for(char c = 'a'; c <='z'; c++)
-                 {
-                     if(temp[i]!=c)
-                     {
-                        temp[i]=c;
-                         String newW = new String(temp);
-                         if(wordSet.contains(newW))
-                         {
-                            wq.add(newW);
-                            cq.add(1+count);
-                            wordSet.remove(newW);
-                         }
-                         
-                         
-                     }
-                 }
-             }
-             
-         }
-             
-          
-         return 0;
-     }
+	public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        Set<String> set = new HashSet<String>();
+        for(String word : wordList) set.add(word);
+        
+        Queue<Object[]> q = new LinkedList<Object[]>();
+        q.add(new Object[]{beginWord, 1});
+        
+        while(!q.isEmpty() && !set.isEmpty())
+        {
+            Object [] obj = q.poll();
+            String currWord = (String) obj[0];
+            Integer ladder = (Integer) obj[1];
+            
+            char [] word = currWord.toCharArray();
+           // System.out.println(new String( word)) ;
+            for(int i = 0; i < word.length; i++)
+            {
+                for(char ch = 'a'; ch<='z' ;ch++)
+                {
+                    if(word[i]!=ch)
+                    {
+                        char temp = word[i];
+                        word[i] = ch;
+                        String newWord = new String(word);
+                        if(set.contains(newWord))
+                        {
+                            if(newWord.equals(endWord))
+                            {
+                                return ladder + 1;
+                            }
+                            
+                            q.add(new Object[]{newWord, ladder + 1});
+                            set.remove(newWord);
+                        }
+                         word[i] = temp;
+                    }
+                }
+            }
+            
+            
+        }
+        return 0;
+    }
     
     public static void main(String[] args) {
 		LC127WordLadder lc = new LC127WordLadder();
