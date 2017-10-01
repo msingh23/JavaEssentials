@@ -21,5 +21,20 @@ public class LC206ReverseLinkedList {
 
 		return prev;
 	}
+	
+	   public ListNode reverseList2(ListNode head) 
+	     {
+	        return reverseListHealper(head, null);
+	     }
+	     public ListNode reverseListHealper(ListNode curr, ListNode prev) 
+	     {
+	         if(null == curr) return prev;
+	         
+	         ListNode next = curr.next;
+	         curr.next = prev;
+	         prev = curr;
+	         return reverseListHealper(next, prev);
+	         
+	     }
 
 }
