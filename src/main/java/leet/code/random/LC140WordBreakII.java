@@ -6,8 +6,11 @@ package leet.code.random;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author manu
@@ -52,6 +55,7 @@ public class LC140WordBreakII {
     }
 	    */
 	
+	/*
 	 public List<String> wordBreak(String s, List<String> wordDict) 
 	    {
 	        Map<String, List<String>> mp = new HashMap<String, List<String>>();
@@ -87,6 +91,50 @@ public class LC140WordBreakII {
 	         }
 	        return mp.get(s);
 	     }
+	     */
+	     public List<String> wordBreak(String s, List<String> wordDict) 
+	     {
+	         Set<String> set = new HashSet<String>(wordDict);
+	         Map<String, List<String>> map= new HashMap<String, List<String>>();
+	         return wordBreakHelper(s,set, map);
+	     }
+	    
+	   public List<String> wordBreakHelper(String s, Set<String> set, Map<String, List<String>> map )
+	   {
+	       //base
+	       if(s.equals("") || s.length() == 0)
+	       {
+	           return new ArrayList<String>(Arrays.asList("*"));
+	       }
+
+	       if(!map.containsKey(s))
+	       {
+	           List<String> ls = new LinkedList<String>();
+	            for(int i = 1; i <= s.length(); i++)
+	           {
+	               if( set.contains(s.substring(0, i)) )
+	               {
+	                   List<String> ahead = wordBreakHelper(s.substring(i), set, map);
+	                   if(ahead!=null)
+	                   {
+	                       for(String line: ahead)
+	                       {
+	                           if(line.equals("*"))
+	                           {
+	                                 ls.add(s.substring(0, i));
+	                           }else{
+	                               ls.add(s.substring(0, i)+" "+line);
+	                           }
+	                       }
+	                          
+	                   }
+	               }
+	           }
+	           map.put(s, ls);
+	       }
+	       return map.get(s);
+	   }
+	   
 	    public static void main(String[] args) {
 			LC140WordBreakII lc = new LC140WordBreakII();
 			System.out.println(lc.wordBreak("catsanddog", (List<String>) Arrays.asList("cat","cats","and","sand","dog")));
