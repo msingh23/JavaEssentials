@@ -65,7 +65,72 @@ public void reverse(char [] inp, int start, int end)
          end --;
      }
  }
-	   
+
+public String reverseWords2(String s) {
+    
+    if(null == s || s.length() == 0) return s;
+    
+    String is = s.trim();
+    if(is.length() == 0) return is;
+    char [] arr = is.toCharArray();
+   
+    int end = getEnd(arr);
+    
+    swap(arr, 0, end);
+   
+    int start = -1;
+    for(int i = 0; i<=end; i++)
+    {
+        if(arr[i] == ' ' )
+        {
+            swap(arr, start+1, i-1);
+            start=i;
+        }
+        if(i == end)
+            swap(arr, start+1, i);
+    }
+    
+    String out = new String(arr);
+    return out.trim();
+    
+}
+public int getEnd(char [] in)
+{
+    int start = 0;
+    int end = 0;
+    while(end<in.length)
+    {
+        if(in[end] == ' ')
+        {
+            in[start++] = in[end++];
+            while(end<in.length && in[end] == ' ')
+            {
+                end++;
+            }
+        }
+        else
+            in[start++] = in[end++];
+    }
+    end = start-1;
+    while(start<in.length)
+    {
+        in[start++] = ' ';
+    }
+    return end;
+}
+
+
+public void swap(char [] in, int start, int end)
+{
+    while(start<end)
+    {
+        char temp = in[start];
+        in[start] = in[end];
+        in[end] = temp;
+        start++;
+        end--;
+    }
+}
 	   public static void main(String[] args) {
 		   LC151ReverseWordsinaString lc = new LC151ReverseWordsinaString();
 		System.out.println(lc.reverseWords("a"));
