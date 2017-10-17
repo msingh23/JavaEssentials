@@ -29,6 +29,14 @@ public class LC692TopKFrequentWords {
 		PriorityQueue<Object[]> pq = new PriorityQueue<Object[]>((a, b) -> (Integer) a[1] == (Integer) b[1]
 				? ((String) b[0]).compareTo((String) a[0]) : (Integer) a[1] - (Integer) b[1]);
 
+		/*
+		 PriorityQueue<Object[]> pq = new PriorityQueue<Object[]>((a,b)-> {if((Integer)a[1]==(Integer)b[1])
+             return ((String)b[0]).compareTo((String)a[0]);
+         else 
+             return (Integer)a[1] - (Integer)b[1];
+          });
+*/
+		
 		Set<Map.Entry<String, Integer>> entry = map.entrySet();
 		for (Map.Entry<String, Integer> e : entry) {
 			if (pq.size() > k)
